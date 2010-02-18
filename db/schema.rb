@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100218041700) do
+ActiveRecord::Schema.define(:version => 20100218220200) do
 
   create_table "admins", :force => true do |t|
     t.string   "username"
@@ -30,11 +30,11 @@ ActiveRecord::Schema.define(:version => 20100218041700) do
     t.string   "address"
     t.string   "phone"
     t.string   "email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "website"
     t.integer  "admin_id"
     t.boolean  "is_master",  :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "level_groups", :force => true do |t|
