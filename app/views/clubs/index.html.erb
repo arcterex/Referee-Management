@@ -3,11 +3,21 @@
 <table>
   <tr>
     <th>Name</th>
+    <th>Address</th>
+    <th>Phone</th>
+    <th>Email</th>
+    <th>Website</th>
+    <th>Admin</th>
   </tr>
 
 <% @clubs.each do |club| %>
   <tr>
     <td><%=h club.name %></td>
+    <td><%=h club.address %></td>
+    <td><%=h club.phone %></td>
+    <td><%=h club.email %></td>
+    <td><%=h club.website %></td>
+    <td><%=h club.admin %></td>
     <td><%= link_to 'Show', club %></td>
     <td><%= link_to 'Edit', edit_club_path(club) %></td>
     <td><%= link_to 'Destroy', club, :confirm => 'Are you sure?', :method => :delete %></td>

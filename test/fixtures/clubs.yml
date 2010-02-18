@@ -2,6 +2,16 @@
 
 one:
   name: MyString
+  address: MyString
+  phone: MyString
+  email: MyString
+  website: 
+  admin: 1
 
 two:
   name: MyString
+  address: MyString
+  phone: MyString
+  email: MyString
+  website: 
+  admin: 1

@@ -3,6 +3,31 @@
   <%=h @club.name %>
 </p>
 
+<p>
+  <b>Address:</b>
+  <%=h @club.address %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%=h @club.phone %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @club.email %>
+</p>
+
+<p>
+  <b>Website:</b>
+  <%=h @club.website %>
+</p>
+
+<p>
+  <b>Admin:</b>
+  <%=h @club.admin %>
+</p>
+
 
 <%= link_to 'Edit', edit_club_path(@club) %> |
 <%= link_to 'Back', clubs_path %>
