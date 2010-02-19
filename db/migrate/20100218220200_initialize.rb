@@ -1,27 +1,33 @@
 class Initialize < ActiveRecord::Migration
   def self.up
-    # clubs table to define the clubs
-    create_table :clubs do |t|
-      t.string :name
-      t.string :address
-      t.string :phone
-      t.string :email
-      t.string :website
-      t.integer :admin_id
-      t.boolean :is_master, :default => 0
-
-      t.timestamps
-    end
 
     # admin table for who is the controller of a club
     create_table :admins do |t|
       t.string :username
       t.string :password
-      t.boolean :master, :default => 0
+      t.boolean :is_master, :default => 0
       t.timestamps
     end
 
-    # users include ref sand linesman
+    Admin.create :username => "masteradmin", :password => "password", :is_master => true
+    Admin.create :username => "alan",        :password => "password", :is_master => false
+    Admin.create :username => "teresa",      :password => "password", :is_master => false
+
+    # clubs table to define the clubs
+    create_table :clubs do |t|
+      t.string :name
+      t.string :address
+      t.string :phone
+      t.string :website
+      t.integer :admin_id
+
+      t.timestamps
+    end
+
+    Club.create :name => "Mission", :address => "123 Main St.", :admin_id => 2
+    Club.create :name => "Langley", :address => "123 Main St.", :admin_id => 3
+
+    # users include refs and linesman
     create_table :users do |t|
       t.string :name
       t.string :address

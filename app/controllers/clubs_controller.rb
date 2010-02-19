@@ -1,4 +1,5 @@
 class ClubsController < ApplicationController
+  layout "admin_area"
   # GET /clubs
   # GET /clubs.xml
   def index

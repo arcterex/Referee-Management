@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(:version => 20100218220200) do
   create_table "admins", :force => true do |t|
     t.string   "username"
     t.string   "password"
-    t.boolean  "master",     :default => false
+    t.boolean  "is_master",  :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -29,10 +29,8 @@ ActiveRecord::Schema.define(:version => 20100218220200) do
     t.string   "name"
     t.string   "address"
     t.string   "phone"
-    t.string   "email"
     t.string   "website"
     t.integer  "admin_id"
-    t.boolean  "is_master",  :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
