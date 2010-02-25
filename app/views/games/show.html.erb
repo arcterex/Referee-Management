@@ -1,0 +1,23 @@
+<p>
+  <b>Gametime:</b>
+  <%=h @game.gametime %>
+</p>
+
+<p>
+  <b>Field:</b>
+  <%=h @game.field_id %>
+</p>
+
+<p>
+  <b>Home:</b>
+  <%=h @game.home %>
+</p>
+
+<p>
+  <b>Away:</b>
+  <%=h @game.away %>
+</p>
+
+
+<%= link_to 'Edit', edit_game_path(@game) %> |
+<%= link_to 'Back', games_path %>

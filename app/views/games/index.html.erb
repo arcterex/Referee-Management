@@ -1,0 +1,40 @@
+<h1>Listing games</h1>
+
+<table>
+
+<% @fields.each do |field| %>
+    <tr>
+        <td><strong>Field</strong></td>
+    </tr>
+    <tr>
+        <td>
+        </td>
+    </tr>
+    <% if field.games.empty? then %>
+    <tr>
+        <td>
+            No Games
+        </td>
+    </tr>
+    <% else %>
+         <% field.games.each do |game| %>
+         <tr>
+             <td>
+                 <table>
+                     <tr>
+                       <td><%=h field.game.gametime %></td>
+                       <td><%=h field.game.field_id %></td>
+                       <td><%=h field.game.home %></td>
+                       <td><%=h field.game.away %></td>
+                     </tr>
+                 </table>
+             </td>
+         </tr>
+         <% end %>
+    <% end %>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New game', new_game_path %>

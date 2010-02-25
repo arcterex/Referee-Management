@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  gametime: 2010-02-21 13:44:59
+  field_id: 1
+  home: MyString
+  away: MyString
+
+two:
+  gametime: 2010-02-21 13:44:59
+  field_id: 1
+  home: MyString
+  away: MyString

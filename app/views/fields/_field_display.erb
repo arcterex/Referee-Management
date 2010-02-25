@@ -1,0 +1,13 @@
+<tr>
+    <td><%=link_to h(field.name), field %></td>
+    <td><a href="<%=h field.link %>" title="<%=h field.notes %>"><%=h field.address %></a></td>
+</tr>
+<% if field.games.empty? then %>
+<tr>
+    <td>
+        No Games
+    </td>
+</tr>
+<% else %>
+    <%= render :partial => "games_display", :locals => { :games => field.games } %>
+<% end %>
