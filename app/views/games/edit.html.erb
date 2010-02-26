@@ -9,7 +9,8 @@
   </p>
   <p>
     <%= f.label :field_id %><br />
-    <%= f.text_field :field_id %>
+    <%= collection_select (:field, :field_id, Field.all, :id, :name, {:prompt => true }) %>
+    
   </p>
   <p>
     <%= f.label :home %><br />

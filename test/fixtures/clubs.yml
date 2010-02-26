@@ -1,3 +1,18 @@
+# == Schema Information
+# Schema version: 20100225033350
+#
+# Table name: clubs
+#
+#  id         :integer         not null, primary key
+#  name       :string(255)
+#  address    :string(255)
+#  phone      :string(255)
+#  website    :string(255)
+#  admin_id   :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:

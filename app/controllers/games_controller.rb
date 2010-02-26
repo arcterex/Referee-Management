@@ -8,6 +8,6 @@ class GamesController < ApplicationController
   end
   
   def edit
-    @game = Game.find_by_id(params[id])
+    @game = Game.find_by_id(params[:id])
   end
 end
