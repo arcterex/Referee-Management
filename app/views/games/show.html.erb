@@ -1,20 +1,20 @@
 <p>
   <b>Gametime:</b>
-  <%=h @game.gametime %>
+  <%=h @game.gametime.strftime("%D at %I:%M%p") %>
 </p>
 
 <p>
   <b>Field:</b>
-  <%=h @game.field_id %>
+  <a href="<%=h @game.field.link %>"><%=h @game.field.name %></a>
 </p>
 
 <p>
-  <b>Home:</b>
+  <b>Home Team:</b>
   <%=h @game.home %>
 </p>
 
 <p>
-  <b>Away:</b>
+  <b>Away Team:</b>
   <%=h @game.away %>
 </p>
 

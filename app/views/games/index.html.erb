@@ -1,40 +1,26 @@
-<h1>Listing games</h1>
+<h1>Listing Games</h1>
 
 <table>
+  <tr>
+    <th>Time</th>
+    <th>Field</th>
+    <th>Home Team</th>
+    <th>Away Team</th>
+  </tr>
 
-<% @fields.each do |field| %>
-    <tr>
-        <td><strong>Field</strong></td>
-    </tr>
-    <tr>
-        <td>
-        </td>
-    </tr>
-    <% if field.games.empty? then %>
-    <tr>
-        <td>
-            No Games
-        </td>
-    </tr>
-    <% else %>
-         <% field.games.each do |game| %>
-         <tr>
-             <td>
-                 <table>
-                     <tr>
-                       <td><%=h field.game.gametime %></td>
-                       <td><%=h field.game.field_id %></td>
-                       <td><%=h field.game.home %></td>
-                       <td><%=h field.game.away %></td>
-                     </tr>
-                 </table>
-             </td>
-         </tr>
-         <% end %>
-    <% end %>
+<% @games.each do |game| %>
+  <tr>
+    <td><%=h game.gametime.strftime("%D at %I:%M%p") %></td>
+    <td><%=h game.field.name %></td>
+    <td><%=h game.home %></td>
+    <td><%=h game.away %></td>
+    <td><%= link_to 'Show', game %></td>
+    <td><%= link_to 'Edit', edit_game_path(game) %></td>
+    <td><%= link_to 'Destroy', game, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New game', new_game_path %>
+<%= link_to 'New Game', new_game_path %>
