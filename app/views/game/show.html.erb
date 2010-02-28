@@ -1,0 +1,23 @@
+<p>
+  <b>Gametime:</b>
+  <%=h @game.gametime.strftime("%D at %I:%M%p") %>
+</p>
+
+<p>
+  <b>Field:</b>
+  <a href="<%=h @game.field.link %>"><%=h @game.field.name %></a>
+</p>
+
+<p>
+  <b>Home Team:</b>
+  <%=h @game.home %>
+</p>
+
+<p>
+  <b>Away Team:</b>
+  <%=h @game.away %>
+</p>
+
+
+<%= link_to 'Edit', edit_game_path(@game) %> |
+<%= link_to 'Back', game_path %>

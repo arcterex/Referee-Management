@@ -8,4 +8,9 @@ module ApplicationHelper
       "#{@base_title} | #{@title}"
     end
   end
+  def trim_by_words(string,wordcount)
+    if string then
+      string.split[0..(wordcount-1)].join(" ") +(string.split.size > wordcount ? "..." : "")
+    end
+  end
 end

@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1" />
 <meta http-equiv="Content-Language" content="en-us" />
 <title>Referee Management System</title>
-<%= stylesheet_link_tag "style" %>
+<%= render 'layouts/stylesheets' %>
 </head>
 <body>
   <div id="header">
@@ -14,15 +14,17 @@
   </div>
   <div id="menu">
     <ul>
-      <li> <%= link_to "Clubs",  :controller => "clubs", :action => "index" %>
-      <li> <%= link_to "Users",  :controller => "users", :action => "index" %>
-      <li> <%= link_to "Fields", :controller => "users", :action => "index" %>
+      <li> <%= link_to "Referees", :controller => "referee", :action => "index" %>
+      <li> <%= link_to "Games",    :controller => "game",    :action => "index" %>
+      <li> <%= link_to "Fields",   :controller => "field",   :action => "index" %>
     </ul>
     Master Admin Functions:
     <ul>
-      <li> <%= link_to "Admins", :controller => "admins", :action => "index" %>
+      <li> <%= link_to "Admins", :controller => "admin", :action => "index" %>
+      <li> <%= link_to "Clubs",  :controller => "club",  :action => "index" %>
     </ul>
   </div>
+  <%= render 'layouts/flash_notices' %>
   <div id="content">
     <%= yield -%>
   </div>

@@ -1,10 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :games
-  map.resources :clubs
-  map.resources :fields
-  map.resources :users
-  map.resources :admins
-  map.fields    '/fields', :controller => 'fields', :action => "index"
+  map.resources :club
+  map.resources :field
+  map.resources :admin
+  map.resources :referee
+  map.fields    '/field', :controller => 'field', :action => "index"
 
   # The priority is based upon order of creation: first created -> highest priority.
 
@@ -38,7 +38,7 @@ ActionController::Routing::Routes.draw do |map|
   #   end
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
-  map.root :controller => "fields"
+  map.root :controller => "page", :action => "index"
 
   # See how all your routes lay out with "rake routes"
 

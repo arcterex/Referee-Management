@@ -1,0 +1,13 @@
+<table>
+<tr>
+    <th>Time</th>
+    <th>Home Team</th>
+    <th>Away Team</th>
+</tr>
+<% games.each do |game| %>
+<tr>
+    <td><%=h game.gametime.strftime("%D at %I:%M%p") %></td>
+    <td><%=h game.home %></td>
+    <td><%=h game.away %></td>
+</tr>
+<% end %>

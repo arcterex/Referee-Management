@@ -1,0 +1,26 @@
+<h1>Create New Game</h1>
+
+<% form_for(@game) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :gametime %><br />
+    <%= f.datetime_select :gametime %>
+  </p>
+  <p>
+    <%= f.label :field_id %><br />
+    <%= collection_select (:game, :field_id, Field.all, :id, :name, {:prompt => true }) %>
+  </p>
+  <p>
+    <%= f.label :home, 'Home Team' %><br />
+    <%= f.text_field :home %>
+  </p>
+  <p>
+    <%= f.label :away, 'Away Team' %><br />
+    <%= f.text_field :away %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
