@@ -14,14 +14,14 @@
   </div>
   <div id="menu">
     <ul>
-      <li> <%= link_to "Referees", :controller => "referee", :action => "index" %>
-      <li> <%= link_to "Games",    :controller => "game",    :action => "index" %>
-      <li> <%= link_to "Fields",   :controller => "field",   :action => "index" %>
+      <li> <%= link_to "Referees", :controller => "referees", :action => "index" %>
+      <li> <%= link_to "Games",    :controller => "games",    :action => "index" %>
+      <li> <%= link_to "Fields",   :controller => "fields",   :action => "index" %>
     </ul>
     Master Admin Functions:
     <ul>
-      <li> <%= link_to "Admins", :controller => "admin", :action => "index" %>
-      <li> <%= link_to "Clubs",  :controller => "club",  :action => "index" %>
+      <li> <%= link_to "Admins", :controller => "admins", :action => "index" %>
+      <li> <%= link_to "Clubs",  :controller => "clubs",  :action => "index" %>
     </ul>
   </div>
   <%= render 'layouts/flash_notices' %>

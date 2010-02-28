@@ -1,4 +1,4 @@
-class FieldController < ApplicationController
+class FieldsController < ApplicationController
   layout "admin_area"
 
   def index

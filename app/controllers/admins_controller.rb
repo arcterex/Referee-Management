@@ -1,4 +1,4 @@
-class AdminController < ApplicationController
+class AdminsController < ApplicationController
   layout "admin_area"
   # GET /admins
   # GET /admins.xml

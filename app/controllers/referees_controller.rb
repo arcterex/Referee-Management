@@ -1,4 +1,4 @@
-class RefereeController < ApplicationController
+class RefereesController < ApplicationController
   layout 'admin_area'
   def index
   end

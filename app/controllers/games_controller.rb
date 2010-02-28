@@ -1,4 +1,4 @@
-class GameController < ApplicationController
+class GamesController < ApplicationController
   layout "admin_area"
   
   def show
@@ -33,7 +33,7 @@ class GameController < ApplicationController
       redirect_to(@game)
     else 
       flash[:error] = "Unable to find that game"
-      redirect_to(game_path)
+      redirect_to(games_path)
     end
   end
   

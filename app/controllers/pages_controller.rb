@@ -1,4 +1,4 @@
-class PageController < ApplicationController
+class PagesController < ApplicationController
   def index
    @fields = Field.all
   end

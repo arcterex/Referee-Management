@@ -1,10 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :games
-  map.resources :club
-  map.resources :field
-  map.resources :admin
-  map.resources :referee
-  map.fields    '/field', :controller => 'field', :action => "index"
+  map.resources :clubs
+  map.resources :fields
+  map.resources :admins
+  map.resources :referees
 
   # The priority is based upon order of creation: first created -> highest priority.
 
