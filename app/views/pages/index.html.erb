@@ -1,12 +1,10 @@
 This is the main page for the site.
-<table>
 <% if @fields.empty? then %>
-    <tr>
-        <td><em>Currently There are no fields or games setup</em></td>
-    </tr>
+    <p><em>Currently There are no fields or games setup</em></p>
 <% else %>
+<table>
     <% @fields.each do |field| %>
-        <%= render :partial => "field/field_display", :locals => { :field => field } %>
+        <%= render :partial => "fields/field_display", :locals => { :field => field } %>
     <% end %>
-<% end %>
 </table>
+<% end %>
