@@ -4,6 +4,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :fields
   map.resources :admins
   map.resources :referees
+  map.resources :assignors
 
   # The priority is based upon order of creation: first created -> highest priority.
 

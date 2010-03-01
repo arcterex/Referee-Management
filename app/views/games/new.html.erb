@@ -1,6 +1,7 @@
 <h1>Create New Game</h1>
 
 <% form_for(@game) do |f| %>
+    <%= f.error_messages %>
     <%= render :partial => "edit_game", :locals => { :f => f } %>
   <p>
     <%= f.submit 'Create' %>

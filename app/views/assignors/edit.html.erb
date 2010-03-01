@@ -1,0 +1,13 @@
+<h1>Edit Assignor</h1>
+
+<% form_for(@assignor) do |f| %>
+  <%= f.error_messages %>
+  <%= render :partial => "edit_assignor", :locals => { :f => f } %>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+<p>
+<%= link_to 'Back', assignor_path %>
+</p>
+

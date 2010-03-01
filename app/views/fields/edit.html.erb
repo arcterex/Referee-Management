@@ -1,7 +1,8 @@
 <h1>Editing Field</h1>
 
 <% form_for(@field) do |f| %>
-  <%= render :partial => "edit_field", :locals => { :f => f } %>
+    <%= f.error_messages %>
+    <%= render :partial => "edit_field", :locals => { :f => f } %>
   <p>
     <%= f.submit 'Update' %>
   </p>
