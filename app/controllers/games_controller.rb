@@ -18,8 +18,8 @@ class GamesController < ApplicationController
     @game = Game.find_by_id(params[:id])
 
     if @game.update_attributes(params[:game])
-      flash[:notice] = 'Club was successfully updated.'
-      redirect_to(@game)
+      flash[:notice] = 'Game was successfully updated.'
+      redirect_to :action => "index"
     else
       render :action => "edit"
     end

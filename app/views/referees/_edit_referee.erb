@@ -1,0 +1,47 @@
+<%= f.error_messages %>
+
+<p>
+  <%= f.label :username %><br />
+  <%= f.text_field :username %>
+</p>
+<p>
+  <%= f.label :password %><br />
+  <%= f.text_field :password %>
+</p>
+
+<p>
+  <%= f.label :available %><br />
+  <%= f.radio_button :available, "true" %>Available<br/>
+  <%= f.radio_button :available, "false" %>On Hold
+<p>
+  <%= f.label :name %><br />
+  <%= f.text_field :name %>
+</p>
+<p>
+  <%= f.label :address %><br />
+  <%= f.text_field :address %>
+</p>
+<p>
+  <%= f.label :email %><br />
+  <%= f.text_field :email %>
+</p>
+<p>
+  <%= f.label :phone %><br />
+  <%= f.text_field :phone %>
+</p>
+<p>
+  <%= f.label :cell %><br />
+  <%= f.text_field :cell %>
+</p>
+<p>
+  <%= f.label :dob, "Date of Birth" %><br />
+  <%= f.date_select :dob, :start_year => Time.now.year - 100, :end_year => Time.now.year %>
+</p>
+<p>
+  <%= f.label :level_id, "Level" %><br />
+  <%= f.text_field :level_id %>
+</p>
+<p>
+  <%= f.label :notes %><br />
+  <%= f.text_area :notes %>
+</p>

@@ -1,0 +1,11 @@
+<h1>Create New Referee</h1>
+
+<% form_for(@referee) do |f| %>
+  <%= f.error_messages %>
+  <%= render :partial => "edit_referee", :locals => { :f => f } %>
+
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
