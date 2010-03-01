@@ -7,6 +7,7 @@
     <th>Phone</th>
     <th>Website</th>
     <th>Admin</th>
+    <th>Actions</th>
   </tr>
 
 <% @clubs.each do |club| %>
@@ -16,9 +17,9 @@
     <td><%=h club.phone %></td>
     <td><%=h club.website %></td>
     <td><%=h club.admin.username %></td>
-    <td><%= link_to 'Show', club %></td>
-    <td><%= link_to 'Edit', edit_club_path(club) %></td>
-    <td><%= link_to 'Destroy', club, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', club %> |
+        <%= link_to 'Edit', edit_club_path(club) %> |
+        <%= link_to 'Destroy', club, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

@@ -1,20 +1,7 @@
 <h1>New admin</h1>
 
 <% form_for(@admin) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :username %><br />
-    <%= f.text_field :username %>
-  </p>
-  <p>
-    <%= f.label :password %><br />
-    <%= f.text_field :password %>
-  </p>
-  <p>
-    <%= f.label :is_master %><br />
-    <%= f.check_box :is_master %>
-  </p>
+<%= render :partial => "edit_admin", :locals => { :f => f } %>
   <p>
     <%= f.submit 'Create' %>
   </p>

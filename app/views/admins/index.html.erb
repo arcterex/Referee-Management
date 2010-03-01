@@ -5,6 +5,7 @@
     <th>Username</th>
     <th>Password</th>
     <th>Master</th>
+    <th>Actions</th>
   </tr>
 
 <% @admins.each do |admin| %>
@@ -12,9 +13,9 @@
     <td><%=h admin.username %></td>
     <td><%=h admin.password %></td>
     <td><%=h admin.is_master %></td>
-    <td><%= link_to 'Show', admin %></td>
-    <td><%= link_to 'Edit', edit_admin_path(admin) %></td>
-    <td><%= link_to 'Destroy', admin, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', admin %> |
+        <%= link_to 'Edit', edit_admin_path(admin) %> |
+        <%= link_to 'Destroy', admin, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
