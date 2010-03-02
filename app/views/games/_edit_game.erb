@@ -14,3 +14,7 @@
   <%= f.label :away, 'Away Team' %><br />
   <%= f.text_field :away %>
 </p>
+<p>
+  <%= f.label :level, 'Level' %><br />
+  <%= collection_select (:game, :level_id, Level.all, :id, :name, {:prompt => true }) %>
+</p>

@@ -1,0 +1,18 @@
+<p>
+  <b>Name:</b>
+  <%=h @level.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @level.description %>
+</p>
+
+<p>
+  <b>Certrequired:</b>
+  <%=h @level.certrequired %>
+</p>
+
+
+<%= link_to 'Edit', edit_level_path(@level) %> |
+<%= link_to 'Back', levels_path %>
