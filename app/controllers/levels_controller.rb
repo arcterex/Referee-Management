@@ -1,4 +1,6 @@
 class LevelsController < ApplicationController
+  layout 'admin_area'
+
   # GET /levels
   # GET /levels.xml
   def index

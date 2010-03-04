@@ -1,4 +1,6 @@
 class AgesController < ApplicationController
+  layout 'admin_area'
+
   # GET /ages
   # GET /ages.xml
   def index
