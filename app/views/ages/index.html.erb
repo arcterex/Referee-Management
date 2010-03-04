@@ -1,0 +1,22 @@
+<h1>Listing ages</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+
+<% @ages.each do |age| %>
+  <tr>
+    <td><%=h age.name %></td>
+    <td><%=h age.description %></td>
+    <td><%= link_to 'Show', age %></td>
+    <td><%= link_to 'Edit', edit_age_path(age) %></td>
+    <td><%= link_to 'Destroy', age, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New age', new_age_path %>

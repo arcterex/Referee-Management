@@ -1,0 +1,13 @@
+<p>
+  <b>Name:</b>
+  <%=h @age.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @age.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_age_path(@age) %> |
+<%= link_to 'Back', ages_path %>

@@ -1,2 +1,0 @@
-module AgeGroupsHelper
-end

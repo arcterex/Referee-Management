@@ -1,4 +1,4 @@
 require 'spec_helper'
 
-describe "AgeGroups" do
+describe "Ages" do
 end

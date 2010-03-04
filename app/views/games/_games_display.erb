@@ -3,12 +3,16 @@
     <th>Time</th>
     <th>Home Team</th>
     <th>Away Team</th>
+    <th>Level</th>
+    <th>Age Group</th>
 </tr>
 <% games.each do |game| %>
 <tr>
     <td><%=h game.gametime.strftime("%D at %I:%M%p") %></td>
     <td><%=h game.home %></td>
     <td><%=h game.away %></td>
+    <td><%=h game.level.name %></td>
+    <td><%=h game.age.name %></td>
 </tr>
 <% end %>
 </table>

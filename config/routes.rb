@@ -1,7 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :levels
+  map.resources :ages
 
-  map.resources :age_groups
+  map.resources :levels
 
   map.resources :games
   map.resources :clubs

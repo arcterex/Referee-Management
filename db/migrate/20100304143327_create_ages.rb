@@ -1,6 +1,6 @@
-class CreateAgeGroups < ActiveRecord::Migration
+class CreateAges < ActiveRecord::Migration
   def self.up
-    create_table :age_groups do |t|
+    create_table :ages do |t|
       t.string :name
       t.string :description
 
@@ -9,6 +9,6 @@ class CreateAgeGroups < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :age_groups
+    drop_table :ages
   end
 end

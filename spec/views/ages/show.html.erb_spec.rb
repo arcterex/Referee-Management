@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe "/age_groups/show.html.erb" do
-  include AgeGroupsHelper
+describe "/ages/show.html.erb" do
+  include AgesHelper
   before(:each) do
-    assigns[:age_group] = @age_group = stub_model(AgeGroup,
+    assigns[:age] = @age = stub_model(Age,
       :name => "value for name",
       :description => "value for description"
     )

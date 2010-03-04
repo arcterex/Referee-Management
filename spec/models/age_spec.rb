@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe AgeGroup do
+describe Age do
   before(:each) do
     @valid_attributes = {
       :name => "value for name",
@@ -9,6 +9,6 @@ describe AgeGroup do
   end
 
   it "should create a new instance given valid attributes" do
-    AgeGroup.create!(@valid_attributes)
+    Age.create!(@valid_attributes)
   end
 end

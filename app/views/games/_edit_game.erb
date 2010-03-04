@@ -18,3 +18,7 @@
   <%= f.label :level, 'Level' %><br />
   <%= collection_select (:game, :level_id, Level.all, :id, :name, {:prompt => true }) %>
 </p>
+<p>
+  <%= f.label :age, 'Age Group' %><br />
+  <%= collection_select (:game, :age_id, Age.all, :id, :name, {:prompt => true }) %>
+</p>
