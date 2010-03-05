@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100304143645) do
+ActiveRecord::Schema.define(:version => 20100305143412) do
 
   create_table "admins", :force => true do |t|
     t.string   "username"
@@ -34,6 +34,14 @@ ActiveRecord::Schema.define(:version => 20100304143645) do
     t.string   "cell"
     t.string   "username"
     t.string   "password"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "bids", :force => true do |t|
+    t.integer  "game_id"
+    t.integer  "referee_id"
+    t.integer  "assignor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
