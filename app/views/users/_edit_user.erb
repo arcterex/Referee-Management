@@ -3,8 +3,8 @@
   <%= f.text_field :username %>
 </p>
 <p>
-  <%= f.label :password %><br />
-  <%= f.text_field :password %>
+  <%= f.label :hashed_password %><br />
+  <%= f.text_field :hashed_password %>
 </p>
 
 <p>
@@ -37,7 +37,11 @@
 </p>
 <p>
   <%= f.label :level_id, "Level" %><br />
-  <%= f.text_field :level_id %>
+  <%= collection_select (:user, :level_id, Level.all, :id, :name, {:prompt => true }) %>
+</p>
+<p>
+  <%= f.label :role_id, "Role" %><br />
+  <%= collection_select (:user, :role_id, Role.all, :id, :name, {:prompt => true }) %>
 </p>
 <p>
   <%= f.label :notes %><br />

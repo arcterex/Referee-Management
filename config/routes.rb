@@ -1,15 +1,12 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :ages
-
   map.resources :levels
-
   map.resources :games
   map.resources :clubs
   map.resources :fields
   map.resources :admins
-  map.resources :referees
-  map.resources :assignors
-
+  map.resources :users
+  
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

@@ -1,27 +1,27 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
+  username: MyString
+  hashed_password: MyString
+  salt: MyString
   name: MyString
-  address: MyString
   email: MyString
-  dob: 2010-02-27
+  address: MyString
+  dob: 2010-03-07
   phone: MyString
   cell: MyString
-  username: MyString
-  password: MyString
   level_id: 1
-  notes: MyText
-  available: false
+  role_id: 1
 
 two:
+  username: MyString
+  hashed_password: MyString
+  salt: MyString
   name: MyString
-  address: MyString
   email: MyString
-  dob: 2010-02-27
+  address: MyString
+  dob: 2010-03-07
   phone: MyString
   cell: MyString
-  username: MyString
-  password: MyString
   level_id: 1
-  notes: MyText
-  available: false
+  role_id: 1

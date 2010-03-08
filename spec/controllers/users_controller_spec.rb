@@ -1,16 +1,37 @@
 require 'spec_helper'
 
-describe AssignorsController do
+describe UsersController do
 
   #Delete these examples and add some real ones
-  it "should use AssignorsController" do
-    controller.should be_an_instance_of(AssignorsController)
+  it "should use UsersController" do
+    controller.should be_an_instance_of(UsersController)
   end
 
 
   describe "GET 'index'" do
     it "should be successful" do
       get 'index'
+      response.should be_success
+    end
+  end
+
+  describe "GET 'show'" do
+    it "should be successful" do
+      get 'show'
+      response.should be_success
+    end
+  end
+
+  describe "GET 'edit'" do
+    it "should be successful" do
+      get 'edit'
+      response.should be_success
+    end
+  end
+
+  describe "GET 'update'" do
+    it "should be successful" do
+      get 'update'
       response.should be_success
     end
   end
@@ -32,13 +53,6 @@ describe AssignorsController do
   describe "GET 'destroy'" do
     it "should be successful" do
       get 'destroy'
-      response.should be_success
-    end
-  end
-
-  describe "GET 'update'" do
-    it "should be successful" do
-      get 'update'
       response.should be_success
     end
   end
