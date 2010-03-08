@@ -7,17 +7,9 @@ describe GamesController do
     controller.should be_an_instance_of(GamesController)
   end
 
-
-  describe "GET 'new'" do
+  describe "GET 'index'" do
     it "should be successful" do
-      get 'new'
-      response.should be_success
-    end
-  end
-
-  describe "GET 'list'" do
-    it "should be successful" do
-      get 'list'
+      get 'index'
       response.should be_success
     end
   end

@@ -1,5 +1,24 @@
-class UsersController < ApplicationController
+class UserController < ApplicationController
   layout 'admin_area'
+  
+  before_filter :login_required, :only=>['welcome', 'change_password', 'hidden']
+
+  def login
+    if request.post?
+      if session[:user] = User.authenticate(params[:user][:username], params[:user][:password])
+        flash[:message]  = "Login successful"
+        redirect_to_stored
+      else
+        flash[:warning] = "Login unsuccessful"
+      end
+    end
+  end
+  
+  def logout
+    session[:user] = nil
+    flash[:message] = 'Logged out'
+    redirect_to :action => 'login'
+  end
   
   def index
     @users = User.all
@@ -50,4 +69,11 @@ class UsersController < ApplicationController
       render :action => "new"
     end
   end
+  
+  def login
+  end
+  
+  def logout
+  end
+  
 end

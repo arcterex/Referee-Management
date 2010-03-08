@@ -3,10 +3,13 @@
   <%= f.text_field :username %>
 </p>
 <p>
-  <%= f.label :hashed_password %><br />
-  <%= f.text_field :hashed_password %>
+  <label for="user_password">Password</label><br/>
+  <%= password_field "user", "password", :size => 20 %><br/>
 </p>
-
+<p>
+  <label for="user_password_confirmation">Password Confirmation</label><br/>
+  <%= password_field "user", "password_confirmation", :size => 20 %><br/>
+</p>
 <p>
   <%= f.label :available %><br />
   <%= f.radio_button :available, "true" %>Available<br/>
