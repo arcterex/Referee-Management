@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-describe UserController do
+describe UsersController do
 
   #Delete these examples and add some real ones
-  it "should use UserController" do
-    controller.should be_an_instance_of(UserController)
+  it "should use UsersController" do
+    controller.should be_an_instance_of(UsersController)
   end
 
 

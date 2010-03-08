@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
   layout 'admin_area'
   
   before_filter :login_required, :only=>['welcome', 'change_password', 'hidden']
