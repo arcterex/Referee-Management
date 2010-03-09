@@ -1,6 +1,8 @@
-<%= start_form_tag :action=> "login" %>
+<% form_tag do %>
     <h3>Login</h3> 
-
+    <%= flash[:notice]  %>
+    <%= flash[:warning] %>
+    <%= flash[:error]   %>
   <label for="user_username">Login:</label><br/>
   <%= text_field "user", "username", :size => 20 %><br/>
 
@@ -9,7 +11,6 @@
 
 <%= submit_tag "Submit" %>
 
-    <%= link_to 'Register', :action => 'signup' %> |
     <%= link_to 'Forgot my password', :action => 'forgot_password' %>     
 
-<%= end_form_tag %>
+<% end %>

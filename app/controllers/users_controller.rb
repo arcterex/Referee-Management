@@ -43,7 +43,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find_by_id(params[:id])
 
-    if @user.update_attributes(params[:User])
+    if @user.update_attributes(params[:user])
       flash[:notice] = 'User was successfully updated.'
       redirect_to :action => "index"
     else
@@ -71,9 +71,21 @@ class UsersController < ApplicationController
   end
   
   def login
+    render(:layout => "application" )
+    if request.post?
+      if session[:user] = User.authenticate(params[:user][:login], params[:user][:password])
+        flash[:message]  = "Login successful"
+        redirect_to_stored
+      else
+        flash[:warning] = "Login unsuccessful"
+      end
+    end
   end
   
   def logout
+    session[:user] = nil
+    flash[:message] = 'Logged out'
+    redirect_to :action => 'login'
   end
   
 end

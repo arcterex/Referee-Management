@@ -1,7 +1,7 @@
       <div id="header">
         <ul class="navigation round">
-          <li><%= link_to "Field List",    :controller => "page",  :action => "fieldlist" %></li>
-          <li><%= link_to "Referee Login", "#"  %></li>
+          <li><%= link_to "Home",    :controller => "pages",  :action => "index" %></li>
+          <li><%= link_to "Referee Login", :controller => "bids", :action => "index"  %></li>
           <li><%= link_to "Assignor Login",:controller => "login", :action => "index"  %></li>
         </ul>
       </div>

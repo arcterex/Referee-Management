@@ -2256,3 +2256,308 @@ Processing AgesController#index (for 0.0.0.0 at 2010-03-07 22:22:17) [GET]
 Rendering template within layouts/admin_area
 Rendering ages/index
 Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/ages]
+Rendering users/update
+Rendering users/show
+Rendering users/new
+Rendering users/index
+Rendering users/edit
+Rendering users/destroy
+Rendering users/create
+Rendering levels/show.html.erb
+Rendering levels/new.html.erb
+Rendering levels/index.html.erb
+Rendering levels/edit.html.erb
+Rendering games/new
+Rendering games/list
+Rendering fields/index
+Rendering ages/show.html.erb
+Rendering ages/new.html.erb
+Rendering ages/index.html.erb
+Rendering ages/edit.html.erb
+WARNING: Can't mass-assign these protected attributes: salt
+  [4;36;1mUser Load (16.3ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."username" = 'value for username') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'value for email') LIMIT 1[0m
+  [4;36;1mRole Create (1.1ms)[0m   [0;1mINSERT INTO "roles" ("name", "created_at", "updated_at") VALUES('value for name', '2010-03-08 14:19:20', '2010-03-08 14:19:20')[0m
+  [4;35;1mLevel Create (0.3ms)[0m   [0mINSERT INTO "levels" ("name", "created_at", "updated_at", "certrequired", "description") VALUES('value for name', '2010-03-08 14:19:20', '2010-03-08 14:19:20', 'f', 'value for description')[0m
+  [4;36;1mBid Create (4.4ms)[0m   [0;1mINSERT INTO "bids" ("created_at", "updated_at", "game_id", "referee_id", "assignor_id") VALUES('2010-03-08 14:19:20', '2010-03-08 14:19:20', 1, 1, 1)[0m
+  [4;35;1mAge Create (0.3ms)[0m   [0mINSERT INTO "ages" ("name", "created_at", "updated_at", "description") VALUES('value for name', '2010-03-08 14:19:20', '2010-03-08 14:19:20', 'value for description')[0m
+
+
+Processing UsersController#destroy (for 0.0.0.0 at 2010-03-08 06:19:20) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"users"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users
+Completed in 3ms (DB: 23) | 302 Found [http://test.host/users/destroy]
+
+
+Processing UsersController#create (for 0.0.0.0 at 2010-03-08 06:19:20) [GET]
+  Parameters: {"action"=>"create", "controller"=>"users"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."username" IS NULL) LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" IS NULL) LIMIT 1[0m
+Rendering template within layouts/admin_area
+Rendering users/new
+Completed in 2ms (View: 0, DB: 0) | 200 OK [http://test.host/users]
+
+
+Processing UsersController#new (for 0.0.0.0 at 2010-03-08 06:19:20) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/admin_area
+Rendering users/new
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/users/new]
+
+
+Processing UsersController#update (for 0.0.0.0 at 2010-03-08 06:19:20) [GET]
+  Parameters: {"action"=>"update", "controller"=>"users"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+
+
+Processing UsersController#edit (for 0.0.0.0 at 2010-03-08 06:19:20) [GET]
+  Parameters: {"action"=>"edit", "controller"=>"users"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Rendering template within layouts/admin_area
+Rendering users/edit
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/users/edit]
+
+
+Processing UsersController#show (for 0.0.0.0 at 2010-03-08 06:19:20) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Rendering template within layouts/admin_area
+Rendering users/show
+Completed in 1ms (View: 1, DB: 0) | 200 OK [http://test.host/users/show]
+
+
+Processing UsersController#index (for 0.0.0.0 at 2010-03-08 06:19:20) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/admin_area
+Rendering users/index
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/users]
+
+
+Processing LevelsController#destroy (for 0.0.0.0 at 2010-03-08 06:19:20) [DELETE]
+  Parameters: {"action"=>"destroy", "id"=>"37", "controller"=>"levels"}
+Redirected to http://test.host/levels
+Completed in 2ms (DB: 0) | 302 Found [http://test.host/levels/37]
+
+
+Processing LevelsController#destroy (for 0.0.0.0 at 2010-03-08 06:19:20) [DELETE]
+  Parameters: {"action"=>"destroy", "id"=>"1", "controller"=>"levels"}
+Redirected to http://test.host/levels
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/levels/1]
+
+
+Processing LevelsController#update (for 0.0.0.0 at 2010-03-08 06:19:20) [PUT]
+  Parameters: {"action"=>"update", "level"=>{"these"=>"params"}, "id"=>"37", "controller"=>"levels"}
+Rendering template within layouts/admin_area
+Rendering levels/edit
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/levels/37?level%5Bthese%5D=params]
+
+
+Processing LevelsController#update (for 0.0.0.0 at 2010-03-08 06:19:20) [PUT]
+  Parameters: {"action"=>"update", "id"=>"1", "controller"=>"levels"}
+Rendering template within layouts/admin_area
+Rendering levels/edit
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/levels/1]
+
+
+Processing LevelsController#update (for 0.0.0.0 at 2010-03-08 06:19:20) [PUT]
+  Parameters: {"action"=>"update", "id"=>"1", "controller"=>"levels"}
+Rendering template within layouts/admin_area
+Rendering levels/edit
+Completed in 5ms (View: 1, DB: 0) | 200 OK [http://test.host/levels/1]
+
+
+Processing LevelsController#update (for 0.0.0.0 at 2010-03-08 06:19:20) [PUT]
+  Parameters: {"action"=>"update", "level"=>{"these"=>"params"}, "id"=>"37", "controller"=>"levels"}
+Rendering template within layouts/admin_area
+Rendering levels/edit
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/levels/37?level%5Bthese%5D=params]
+
+
+Processing LevelsController#update (for 0.0.0.0 at 2010-03-08 06:19:20) [PUT]
+  Parameters: {"action"=>"update", "id"=>"1", "controller"=>"levels"}
+Redirected to http://test.host/levels/1017
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/levels/1]
+
+
+Processing LevelsController#update (for 0.0.0.0 at 2010-03-08 06:19:20) [PUT]
+  Parameters: {"action"=>"update", "id"=>"1", "controller"=>"levels"}
+Redirected to http://test.host/levels/1018
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/levels/1]
+
+
+Processing LevelsController#create (for 0.0.0.0 at 2010-03-08 06:19:20) [POST]
+  Parameters: {"action"=>"create", "level"=>{"these"=>"params"}, "controller"=>"levels"}
+Rendering template within layouts/admin_area
+Rendering levels/new
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/levels?level%5Bthese%5D=params]
+
+
+Processing LevelsController#create (for 0.0.0.0 at 2010-03-08 06:19:20) [POST]
+  Parameters: {"action"=>"create", "level"=>{}, "controller"=>"levels"}
+Rendering template within layouts/admin_area
+Rendering levels/new
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/levels?]
+
+
+Processing LevelsController#create (for 0.0.0.0 at 2010-03-08 06:19:20) [POST]
+  Parameters: {"action"=>"create", "level"=>{"these"=>"params"}, "controller"=>"levels"}
+Redirected to http://test.host/levels/1021
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/levels?level%5Bthese%5D=params]
+
+
+Processing LevelsController#create (for 0.0.0.0 at 2010-03-08 06:19:20) [POST]
+  Parameters: {"action"=>"create", "level"=>{}, "controller"=>"levels"}
+Redirected to http://test.host/levels/1022
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/levels?]
+
+
+Processing LevelsController#edit (for 0.0.0.0 at 2010-03-08 06:19:20) [GET]
+  Parameters: {"action"=>"edit", "id"=>"37", "controller"=>"levels"}
+Rendering template within layouts/admin_area
+Rendering levels/edit
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/levels/37/edit]
+
+
+Processing LevelsController#new (for 0.0.0.0 at 2010-03-08 06:19:20) [GET]
+  Parameters: {"action"=>"new", "controller"=>"levels"}
+Rendering template within layouts/admin_area
+Rendering levels/new
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/levels/new]
+
+
+Processing LevelsController#show (for 0.0.0.0 at 2010-03-08 06:19:20) [GET]
+  Parameters: {"action"=>"show", "id"=>"37", "controller"=>"levels"}
+Rendering template within layouts/admin_area
+Rendering levels/show
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/levels/37]
+
+
+Processing LevelsController#index (for 0.0.0.0 at 2010-03-08 06:19:20) [GET]
+  Parameters: {"action"=>"index", "controller"=>"levels"}
+Rendering template within layouts/admin_area
+Rendering levels/index
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/levels]
+
+
+Processing GamesController#index (for 0.0.0.0 at 2010-03-08 06:19:20) [GET]
+  Parameters: {"action"=>"index", "controller"=>"games"}
+  [4;35;1mGame Load (1.1ms)[0m   [0mSELECT * FROM "games" [0m
+Rendering template within layouts/admin_area
+Rendering games/index
+Completed in 4ms (View: 0, DB: 1) | 200 OK [http://test.host/games]
+
+
+Processing FieldsController#index (for 0.0.0.0 at 2010-03-08 06:19:20) [GET]
+  Parameters: {"action"=>"index", "controller"=>"fields"}
+  [4;36;1mField Load (1.6ms)[0m   [0;1mSELECT * FROM "fields" [0m
+Rendering template within layouts/admin_area
+Rendering fields/index
+Completed in 9ms (View: 0, DB: 2) | 200 OK [http://test.host/fields]
+
+
+Processing AgesController#destroy (for 0.0.0.0 at 2010-03-08 06:19:20) [DELETE]
+  Parameters: {"action"=>"destroy", "id"=>"37", "controller"=>"ages"}
+Redirected to http://test.host/ages
+Completed in 2ms (DB: 0) | 302 Found [http://test.host/ages/37]
+
+
+Processing AgesController#destroy (for 0.0.0.0 at 2010-03-08 06:19:20) [DELETE]
+  Parameters: {"action"=>"destroy", "id"=>"1", "controller"=>"ages"}
+Redirected to http://test.host/ages
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/ages/1]
+
+
+Processing AgesController#update (for 0.0.0.0 at 2010-03-08 06:19:20) [PUT]
+  Parameters: {"action"=>"update", "id"=>"37", "controller"=>"ages", "age"=>{"these"=>"params"}}
+Rendering template within layouts/admin_area
+Rendering ages/edit
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/ages/37?age%5Bthese%5D=params]
+
+
+Processing AgesController#update (for 0.0.0.0 at 2010-03-08 06:19:20) [PUT]
+  Parameters: {"action"=>"update", "id"=>"1", "controller"=>"ages"}
+Rendering template within layouts/admin_area
+Rendering ages/edit
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/ages/1]
+
+
+Processing AgesController#update (for 0.0.0.0 at 2010-03-08 06:19:20) [PUT]
+  Parameters: {"action"=>"update", "id"=>"1", "controller"=>"ages"}
+Rendering template within layouts/admin_area
+Rendering ages/edit
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/ages/1]
+
+
+Processing AgesController#update (for 0.0.0.0 at 2010-03-08 06:19:20) [PUT]
+  Parameters: {"action"=>"update", "id"=>"37", "controller"=>"ages", "age"=>{"these"=>"params"}}
+Rendering template within layouts/admin_area
+Rendering ages/edit
+Completed in 1ms (View: 1, DB: 0) | 200 OK [http://test.host/ages/37?age%5Bthese%5D=params]
+
+
+Processing AgesController#update (for 0.0.0.0 at 2010-03-08 06:19:20) [PUT]
+  Parameters: {"action"=>"update", "id"=>"1", "controller"=>"ages"}
+Redirected to http://test.host/ages/1033
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/ages/1]
+
+
+Processing AgesController#update (for 0.0.0.0 at 2010-03-08 06:19:20) [PUT]
+  Parameters: {"action"=>"update", "id"=>"1", "controller"=>"ages"}
+Redirected to http://test.host/ages/1034
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/ages/1]
+
+
+Processing AgesController#create (for 0.0.0.0 at 2010-03-08 06:19:20) [POST]
+  Parameters: {"action"=>"create", "controller"=>"ages", "age"=>{"these"=>"params"}}
+Rendering template within layouts/admin_area
+Rendering ages/new
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/ages?age%5Bthese%5D=params]
+
+
+Processing AgesController#create (for 0.0.0.0 at 2010-03-08 06:19:20) [POST]
+  Parameters: {"action"=>"create", "controller"=>"ages", "age"=>{}}
+Rendering template within layouts/admin_area
+Rendering ages/new
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/ages?]
+
+
+Processing AgesController#create (for 0.0.0.0 at 2010-03-08 06:19:20) [POST]
+  Parameters: {"action"=>"create", "controller"=>"ages", "age"=>{"these"=>"params"}}
+Redirected to http://test.host/ages/1037
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/ages?age%5Bthese%5D=params]
+
+
+Processing AgesController#create (for 0.0.0.0 at 2010-03-08 06:19:20) [POST]
+  Parameters: {"action"=>"create", "controller"=>"ages", "age"=>{}}
+Redirected to http://test.host/ages/1038
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/ages?]
+
+
+Processing AgesController#edit (for 0.0.0.0 at 2010-03-08 06:19:20) [GET]
+  Parameters: {"action"=>"edit", "id"=>"37", "controller"=>"ages"}
+Rendering template within layouts/admin_area
+Rendering ages/edit
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/ages/37/edit]
+
+
+Processing AgesController#new (for 0.0.0.0 at 2010-03-08 06:19:20) [GET]
+  Parameters: {"action"=>"new", "controller"=>"ages"}
+Rendering template within layouts/admin_area
+Rendering ages/new
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/ages/new]
+
+
+Processing AgesController#show (for 0.0.0.0 at 2010-03-08 06:19:20) [GET]
+  Parameters: {"action"=>"show", "id"=>"37", "controller"=>"ages"}
+Rendering template within layouts/admin_area
+Rendering ages/show
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/ages/37]
+
+
+Processing AgesController#index (for 0.0.0.0 at 2010-03-08 06:19:20) [GET]
+  Parameters: {"action"=>"index", "controller"=>"ages"}
+Rendering template within layouts/admin_area
+Rendering ages/index
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/ages]

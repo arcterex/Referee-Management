@@ -3,7 +3,8 @@ class PagesController < ApplicationController
    @fields = Field.all
   end
   
-  def fieldlist
-    @fields = Field.all
+  def home
+      @fields = Field.all
   end
+
 end

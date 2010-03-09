@@ -5,11 +5,13 @@ class User < ActiveRecord::Base
   belongs_to  :role
   belongs_to  :level
   validates_length_of       :username, :within => 3..40
-  validates_length_of       :password, :within => 5..40
-  validates_presence_of     :username, :email, :password, :password_confirmation, :salt
+  validates_length_of       :password, :within => 5..40, :if => :password_required?
+  validates_confirmation_of :password,                   :if => :password_required?
+  validates_presence_of     :password,                   :if => :password_required?
+  validates_presence_of     :password_confirmation,      :if => :password_required?
+  validates_presence_of     :username, :email, :salt
   validates_uniqueness_of   :username, :email
   validates_format_of       :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i, :message => "Invalid email"
-  validates_confirmation_of :password
   
   attr_protected :id, :salt
   
@@ -25,7 +27,7 @@ class User < ActiveRecord::Base
   def password=(password)
     @password = password
     self.salt = User.random_string(10) if !self.salt?
-    self.hashed_passowrd = User.encrypt(@password, self.salt)
+    self.hashed_password = User.encrypt(@password, self.salt)
   end
   
   def send_new_password
@@ -48,4 +50,9 @@ class User < ActiveRecord::Base
     1.upto(length) { |i| newpass << chars[rand(chars.size-1)]}
     return newpass
   end
+  
+  def password_required?
+    hashed_password.nil? || !password.blank?
+  end
+  
 end

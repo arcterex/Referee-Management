@@ -7,6 +7,9 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :admins
   map.resources :users
   
+  # create the login page
+  map.login '/login', :controller => "users", :action => "login"
+  
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

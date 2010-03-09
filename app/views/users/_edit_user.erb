@@ -3,12 +3,12 @@
   <%= f.text_field :username %>
 </p>
 <p>
-  <label for="user_password">Password</label><br/>
-  <%= password_field "user", "password", :size => 20 %><br/>
+    <%= f.label :password %><br/>
+    <%= f.password_field :password, :size => 40 %>
 </p>
 <p>
-  <label for="user_password_confirmation">Password Confirmation</label><br/>
-  <%= password_field "user", "password_confirmation", :size => 20 %><br/>
+    <%= f.label :password_confirmation, 'Confirm' %><br/>
+    <%= f.password_field :password_confirmation, :size => 40 %>
 </p>
 <p>
   <%= f.label :available %><br />

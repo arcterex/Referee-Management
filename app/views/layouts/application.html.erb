@@ -13,6 +13,7 @@
       </div>
       <%= render 'layouts/footer' %>
     </div>
-    <%= "DEBUG: " + debug(params) if Rails.env.development? %>
+    <%= "DEBUG PARAMS: "  + debug(params)  if Rails.env.development? %>
+    <%= "DEBUG SESSION: " + debug(session) if Rails.env.development? %>
   </body>
 </html>
