@@ -37,6 +37,20 @@ class User < ActiveRecord::Base
     # Notifications.deliver_forgot_password(self.email, self.login, new_pass)
   end
   
+  def referee?
+    if self.role.name =~ /referee/i
+      return true
+    end
+    false
+  end
+  
+  def assignor?
+    if self.role.name =~ /assignor/i
+      return true
+    end
+    false
+  end
+  
   protected
   
   def self.encrypt(password, salt)

@@ -14,16 +14,17 @@
   </div>
   <div id="menu">
     <ul>
-      <li> <%= link_to "Games",    :controller => "games",    :action => "index" %></li>
-      <li> <%= link_to "Fields",   :controller => "fields",   :action => "index" %></li>
+        <li> <%= link_to "Site Home", :controller => "pages",    :action => "index" %></li>
+        <li> <%= link_to "Games",     :controller => "games",    :action => "index" %></li>
+        <li> <%= link_to "Fields",    :controller => "fields",   :action => "index" %></li>
     </ul>
     Master Admin Functions:
     <ul>
-      <li> <%= link_to "Admins",     :controller => "admins",     :action => "index" %></li>
-      <li> <%= link_to "Clubs",      :controller => "clubs",      :action => "index" %></li>
-      <li> <%= link_to "Users",      :controller => "users",      :action => "index" %></li>
-      <li> <%= link_to "Age Groups", :controller => "ages",       :action => "index" %></li>
-      <li> <%= link_to "Levels",     :controller => "levels",     :action => "index" %></li>
+        <li> <%= link_to "Admins",     :controller => "admins",     :action => "index" %></li>
+        <li> <%= link_to "Clubs",      :controller => "clubs",      :action => "index" %></li>
+        <li> <%= link_to "Users",      :controller => "users",      :action => "index" %></li>
+        <li> <%= link_to "Age Groups", :controller => "ages",       :action => "index" %></li>
+        <li> <%= link_to "Levels",     :controller => "levels",     :action => "index" %></li>
     </ul>
   </div>
   <%= render 'layouts/flash_notices' %>
