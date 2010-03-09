@@ -1,5 +1,8 @@
       <div id="header">
         <ul class="navigation round">
+        <% if session[:user] %>
+            <li> Logged in as <%= session[:user].name %>
+        <% end %> 
           <li><%= link_to "Home",    :controller => "pages",  :action => "index" %></li>
           <li><%= link_to "Referee Login", :controller => "bids", :action => "index"  %></li>
           <li><%= link_to "Assignor Login",:controller => "login", :action => "index"  %></li>

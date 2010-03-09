@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   layout 'admin_area'
   
-  before_filter :login_required, :only=>['welcome', 'change_password', 'hidden']
+#  before_filter :login_required, :only => :login
 
   def login
     if request.post?
@@ -71,9 +71,9 @@ class UsersController < ApplicationController
   end
   
   def login
-    render(:layout => "application" )
+#    render(:layout => "application" )
     if request.post?
-      if session[:user] = User.authenticate(params[:user][:login], params[:user][:password])
+      if session[:user] = User.authenticate(params[:user][:username], params[:user][:password])
         flash[:message]  = "Login successful"
         redirect_to_stored
       else

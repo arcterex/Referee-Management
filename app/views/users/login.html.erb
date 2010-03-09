@@ -1,8 +1,6 @@
-<% form_tag do %>
+<% form_tag ('/login') do %>
     <h3>Login</h3> 
-    <%= flash[:notice]  %>
-    <%= flash[:warning] %>
-    <%= flash[:error]   %>
+    <%= render :partial => 'layouts/flash_notices'%>
   <label for="user_username">Login:</label><br/>
   <%= text_field "user", "username", :size => 20 %><br/>
 
