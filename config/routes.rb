@@ -9,8 +9,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :assignors
   
   # create the login page
-  map.login '/login', :controller => "users", :action => "login"
-  map.login '/logout',:controller => "users", :action => "logout"
+  map.login  '/login', :controller => "users", :action => "login"
+  map.logout '/logout',:controller => "users", :action => "logout"
   
   # The priority is based upon order of creation: first created -> highest priority.
 

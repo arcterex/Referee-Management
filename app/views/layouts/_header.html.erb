@@ -5,8 +5,7 @@
             <li> <%= link_to "Logout",  :controller => "users", :action => "logout" %></li>
         <% end %> 
           <li><%= link_to "Home",       :controller => "pages",     :action => "index" %></li>
-          <li><%= link_to "Referees",   :controller => "bids",      :action => "index" %></li>
-          <li><%= link_to "Assignors",  :controller => "assignors", :action => "index" %></li>
+          <li><%= link_to "Login",      login_path %>
         </ul>
       </div>
 
