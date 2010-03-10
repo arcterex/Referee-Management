@@ -5,20 +5,34 @@ class UsersController < ApplicationController
 
   def login
     if request.post?
+      logger.debug "Auth #{params[:user][:username]} / #{params[:user][:password]}"
       if session[:user] = User.authenticate(params[:user][:username], params[:user][:password])
         flash[:message]  = "Login successful"
-        redirect_to_stored
+        # redirect implicitly to the page for the user (for now)
+        #redirect_to_stored
+        logger.debug "user #{params[:user]} logged in"
+        if session[:user].referee? then
+          logger.debug "sending to bids (ref)"
+          redirect_to :controller=>'bids', :action=>'index'
+        end
+        if session[:user].assignor? then
+          logger.debug "sending to assigns (assignor)"
+          redirect_to :controller=>'assigns', :action=>'index'
+        end
+        logger.debug "Fallthrough, no user type!"
       else
         flash[:warning] = "Login unsuccessful"
       end
     end
   end
   
-  def logout
-    session[:user] = nil
-    flash[:message] = 'Logged out'
-    redirect_to :action => 'login'
-  end
+  # def logout
+  #   logger.debug "in logout"
+  #   session[:user] = nil
+  #   flash[:message] = 'Logged out'
+  #   logger.debug = "logged out, going to /pages/index"
+  #   redirect_to :controller => "pages", :action => 'index'
+  # end
   
   def index
     @users = User.all
@@ -70,22 +84,23 @@ class UsersController < ApplicationController
     end
   end
   
-  def login
-#    render(:layout => "application" )
-    if request.post?
-      if session[:user] = User.authenticate(params[:user][:username], params[:user][:password])
-        flash[:message]  = "Login successful"
-        redirect_to_stored
-      else
-        flash[:warning] = "Login unsuccessful"
-      end
-    end
-  end
+#   def login
+# #    render(:layout => "application" )
+#     if request.post?
+#       if session[:user] = User.authenticate(params[:user][:username], params[:user][:password])
+#         flash[:message]  = "Login successful"
+#         redirect_to_stored
+#       else
+#         flash[:warning] = "Login unsuccessful"
+#       end
+#     end
+#   end
   
   def logout
     session[:user] = nil
     flash[:message] = 'Logged out'
-    redirect_to :action => 'login'
+    redirect_to :controller => "pages", :action => 'index'
+#    redirect_to :action => 'login'
   end
   
 end

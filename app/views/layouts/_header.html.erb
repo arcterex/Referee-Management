@@ -1,11 +1,12 @@
       <div id="header">
         <ul class="navigation round">
         <% if session[:user] %>
-            <li> Logged in as <%= session[:user].name %>
+            <li> Logged in as <%= session[:user].name %></li>
+            <li> <%= link_to "Logout",  :controller => "users", :action => "logout" %></li>
         <% end %> 
-          <li><%= link_to "Home",    :controller => "pages",  :action => "index" %></li>
-          <li><%= link_to "Referee Login", :controller => "bids", :action => "index"  %></li>
-          <li><%= link_to "Assignor Login",:controller => "login", :action => "index"  %></li>
+          <li><%= link_to "Home",       :controller => "pages",     :action => "index" %></li>
+          <li><%= link_to "Referees",   :controller => "bids",      :action => "index" %></li>
+          <li><%= link_to "Assignors",  :controller => "assignors", :action => "index" %></li>
         </ul>
       </div>
 

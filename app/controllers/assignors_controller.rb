@@ -1,4 +1,4 @@
-class BidsController < ApplicationController
+class AssignorsController < ApplicationController
   before_filter :authorize, :except => :login
 
   def index
@@ -8,9 +8,8 @@ class BidsController < ApplicationController
   end
   
   def authorize
-    if User.find_by_id(session[:user]) && session[:user].referee? then
-      return
-    else
+    unless User.find_by_id(session[:user] && session[:user].assignor?)
+      session[:user] = nil
       flash[:notice] = "Please Login"
       # save where we're going
       session[:return_to] = request.request_uri
