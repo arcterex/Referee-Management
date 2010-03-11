@@ -9,12 +9,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100309065513) do
+ActiveRecord::Schema.define(:version => 20100311034958) do
 
   create_table "admins", :force => true do |t|
     t.string   "username"
     t.string   "password"
     t.boolean  "is_master",  :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "age_groups", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -46,6 +52,13 @@ ActiveRecord::Schema.define(:version => 20100309065513) do
     t.datetime "updated_at"
   end
 
+  create_table "certifications", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "clubs", :force => true do |t|
     t.string   "name"
     t.string   "address"
@@ -59,7 +72,7 @@ ActiveRecord::Schema.define(:version => 20100309065513) do
   create_table "fields", :force => true do |t|
     t.string   "name"
     t.string   "address"
-    t.text     "link",       :limit => 255
+    t.text     "link"
     t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -127,6 +140,8 @@ ActiveRecord::Schema.define(:version => 20100309065513) do
     t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "certification_id"
+    t.integer  "age_id"
   end
 
 end

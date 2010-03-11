@@ -11,10 +11,6 @@
     <%= f.password_field :password_confirmation, :size => 40 %>
 </p>
 <p>
-  <%= f.label :available %><br />
-  <%= f.radio_button :available, "true" %>Available<br/>
-  <%= f.radio_button :available, "false" %>On Hold
-<p>
   <%= f.label :name %><br />
   <%= f.text_field :name %>
 </p>
@@ -35,18 +31,32 @@
   <%= f.text_field :cell %>
 </p>
 <p>
-  <%= f.label :dob, "Date of Birth" %><br />
-  <%= f.date_select :dob, :start_year => Time.now.year - 100, :end_year => Time.now.year %>
-</p>
-<p>
-  <%= f.label :level_id, "Level" %><br />
-  <%= collection_select (:user, :level_id, Level.all, :id, :name, {:prompt => true }) %>
+  <%= f.label :notes %><br />
+  <%= f.text_area :notes %>
 </p>
 <p>
   <%= f.label :role_id, "Role" %><br />
   <%= collection_select (:user, :role_id, Role.all, :id, :name, {:prompt => true }) %>
 </p>
+<h2>Referee Required Fields</h2>
 <p>
-  <%= f.label :notes %><br />
-  <%= f.text_area :notes %>
+  <%= f.label :available %><br />
+  <%= f.radio_button :available, "true" %>Available<br/>
+  <%= f.radio_button :available, "false" %>On Hold
+</p>
+<p>
+  <%= f.label :dob, "Date of Birth" %><br />
+  <%= f.date_select :dob, :start_year => Time.now.year - 100, :end_year => Time.now.year %>
+</p>
+<p>
+  <%= f.label :certification_id, "Certification Level" %><br />
+  <%= collection_select (:user, :certification_id, Certification.all, :id, :name, {:prompt => true }) %>
+</p>
+<p>
+  <%= f.label :age_id, "Age Group" %><br />
+  <%= collection_select (:user, :age_id, Age.all, :id, :name, {:prompt => true }) %>
+</p>
+<p>
+  <%= f.label :level_id, "Level Group" %><br />
+  <%= collection_select (:user, :level_id, Level.all, :id, :name, {:prompt => true }) %>
 </p>
