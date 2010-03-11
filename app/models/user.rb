@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   belongs_to  :level
   belongs_to  :certification
   belongs_to  :age
+  belongs_to  :club
   validates_length_of       :username, :within => 3..40
   validates_length_of       :password, :within => 5..40, :if => :password_required?
   validates_confirmation_of :password,                   :if => :password_required?
