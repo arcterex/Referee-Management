@@ -11,6 +11,10 @@
     <%= f.password_field :password_confirmation, :size => 40 %>
 </p>
 <p>
+  <%= f.label :club_id, "Club" %><br />
+  <%= collection_select (:user, :club_id, Club.all, :id, :name, {:prompt => true }) %>
+</p>
+<p>
   <%= f.label :name %><br />
   <%= f.text_field :name %>
 </p>

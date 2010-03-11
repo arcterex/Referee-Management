@@ -14,11 +14,12 @@ class FieldsController < ApplicationController
   
   def update
     @field = Field.find_by_id(params[:id])
-    
     if @field.update_attributes(params[:field])
       flash[:notice] = 'Field was successfully updated.'
       redirect_to :action => "index"
     else
+      # FIXME - why do I need to do this here?
+      @fields = Field.all
       render :action => "index"
     end
   end

@@ -13,9 +13,11 @@
 #
 
 class Field < ActiveRecord::Base
-  has_many :games
+  has_many    :games
+  belongs_to  :clubs
   validates_presence_of :name,    :on => :save, :message => "can't be blank"
   validates_presence_of :address, :on => :save, :message => "can't be blank"
+  validates_presence_of :club_id, :on => :save, :message => "can't be blank"
   
   attr_accessor :link
   def link=(val)
