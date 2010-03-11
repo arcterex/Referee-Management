@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def login
     if request.post?
-      logger.debug "Auth #{params[:user][:username]} / #{params[:user][:password]}"
+      logger.debug "Authorizing #{params[:user][:username]} / #{params[:user][:password]}"
       if session[:user] = User.authenticate(params[:user][:username], params[:user][:password])
         flash[:message]  = "Login successful"
         # redirect implicitly to the page for the user (for now)
@@ -25,14 +25,6 @@ class UsersController < ApplicationController
       end
     end
   end
-  
-  # def logout
-  #   logger.debug "in logout"
-  #   session[:user] = nil
-  #   flash[:message] = 'Logged out'
-  #   logger.debug = "logged out, going to /pages/index"
-  #   redirect_to :controller => "pages", :action => 'index'
-  # end
   
   def index
     @users = User.all
@@ -83,18 +75,6 @@ class UsersController < ApplicationController
       render :action => "new"
     end
   end
-  
-#   def login
-# #    render(:layout => "application" )
-#     if request.post?
-#       if session[:user] = User.authenticate(params[:user][:username], params[:user][:password])
-#         flash[:message]  = "Login successful"
-#         redirect_to_stored
-#       else
-#         flash[:warning] = "Login unsuccessful"
-#       end
-#     end
-#   end
   
   def logout
     session[:user] = nil

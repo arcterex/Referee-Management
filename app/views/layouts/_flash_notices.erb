@@ -6,4 +6,8 @@
 <div id="error">
   <%=flash[:error] %>
 </div>
+  <% elsif flash[:warning] %>
+  <div id="warning">
+    <%=flash[:warning] %>
+  </div>
 <% end %>

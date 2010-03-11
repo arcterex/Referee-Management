@@ -32,8 +32,10 @@ class User < ActiveRecord::Base
   
   def password=(password)
     @password = password
-    self.salt = User.random_string(10) if !self.salt?
-    self.hashed_password = User.encrypt(@password, self.salt)
+    if !@password.blank?
+      self.salt = User.random_string(10) if !self.salt?
+      self.hashed_password = User.encrypt(@password, self.salt)
+    end
   end
   
   def send_new_password
