@@ -21,4 +21,8 @@ class Game < ActiveRecord::Base
   validates_presence_of :gametime,  :on => :save, :message => "can't be blank"
   validates_presence_of :home,      :on => :save, :message => "can't be blank"
   validates_presence_of :away,      :on => :save, :message => "can't be blank"
+
+  named_scope :eligible_for, lambda { |user|
+    { :conditions => { :age_id => user.age_id } }
+  }
 end

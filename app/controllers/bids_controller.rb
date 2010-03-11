@@ -6,7 +6,7 @@ class BidsController < ApplicationController
     # also get a list of their bids so we can put in what 
     # they've bid on already
     @user = User.find_by_id(session[:user])
-    @games = @user.club.games.find( :all, :conditions => { :age_id => @user.age_id } )
+    @games = @user.club.games.eligible_for(@user)
   end
   
   def authorize
