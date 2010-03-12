@@ -15,6 +15,8 @@
 
 class Club < ActiveRecord::Base
   belongs_to :admin
+  has_many :fields
+  has_many :games, :through => :fields
   validates_presence_of :admin_id, :on => :create, :message => "can't be blank"
   validates_presence_of :name
 end

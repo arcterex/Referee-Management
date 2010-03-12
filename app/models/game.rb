@@ -13,8 +13,8 @@
 #
 
 class Game < ActiveRecord::Base
-  belongs_to :field
   has_many   :referee
+  belongs_to :field
   belongs_to :level
   belongs_to :age
   validates_presence_of :field_id,  :on => :save, :message => "can't be blank"

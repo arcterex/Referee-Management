@@ -4,7 +4,17 @@ class BidsController < ApplicationController
   def index
     # get the user and a list of games that they can bid on
     # also get a list of their bids so we can put in what 
-    # they've bid on already
+    # they've bid on already.
+    # Games need to match
+    # - club_id
+    # - age_id
+    # ie: select g.id from games g 
+    #     join fields f on g.field_id = f.id 
+    #     where g.age_id = 1 and f.club_id = 1;
+    
+    u = User.find_by_id(session[:user])
+#    @games = Game.all( :conditions => [ "age_id = ? AND club_id = ?", u.age_id, u.club_id ], :include => [{:field => :club}] )
+    @games = 
   end
   
   def authorize
