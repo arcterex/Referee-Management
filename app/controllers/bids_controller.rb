@@ -12,9 +12,8 @@ class BidsController < ApplicationController
     #     join fields f on g.field_id = f.id 
     #     where g.age_id = 1 and f.club_id = 1;
     
-    u = User.find_by_id(session[:user])
-#    @games = Game.all( :conditions => [ "age_id = ? AND club_id = ?", u.age_id, u.club_id ], :include => [{:field => :club}] )
-    @games = 
+    @user = User.find_by_id(session[:user])
+    @games = @user.club.games.eligible_for(@user)
   end
   
   def authorize

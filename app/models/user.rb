@@ -20,6 +20,11 @@ class User < ActiveRecord::Base
   attr_protected :id, :salt
   
   attr_accessor :password, :password_confirmation
+
+  # valid games for the user
+  has_many :eligible_games, :through => :age, :source => :games
+
+  # authentication methods
   
   def self.authenticate(username, pass)
     u = find(:first, :conditions => ["username = ?", username])
