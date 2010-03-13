@@ -1,2 +1,5 @@
-This is the bids main page for authenticated referee users
-<%= p @games %>
+This is the bids main page for authenticated referee users.
+<%= @games.size %>
+<% @games.each do |game|  %>
+    <LI><%= game %>
+<% end %>
