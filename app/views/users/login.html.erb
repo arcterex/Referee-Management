@@ -1,14 +1,11 @@
 <% form_tag ('/login') do %>
     <h3>Login</h3> 
-    <%= render :partial => 'layouts/flash_notices'%>
-  <label for="user_username">Login:</label><br/>
-  <%= text_field "user", "username", :size => 20 %><br/>
+    <label for="user_username">Login:</label><br/>
+    <%= text_field "user", "username", :size => 20 %><br/>
 
-  <label for="user_password">Password:</label><br/>
-  <%= password_field "user", "password", :size => 20 %><br/>
+    <label for="user_password">Password:</label><br/>
+    <%= password_field "user", "password", :size => 20 %><br/>
 
-<%= submit_tag "Submit" %>
-
-    <%= link_to 'Forgot my password', :action => 'forgot_password' %>     
+    <%= submit_tag "Submit" %>
 
 <% end %>

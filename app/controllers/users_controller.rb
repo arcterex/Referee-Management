@@ -17,7 +17,7 @@ class UsersController < ApplicationController
         end
         if session[:user].assignor? then
           logger.debug "sending to assigns (assignor)"
-          redirect_to :controller=>'assigns', :action=>'index'
+          redirect_to :controller=>'assignors', :action=>'index'
         end
         logger.debug "Fallthrough, no user type!"
       else
