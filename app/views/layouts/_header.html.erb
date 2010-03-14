@@ -2,6 +2,9 @@
         <ul class="navigation round">
         <% if session[:user] %>
             <li> Logged in as <%= session[:user].name %></li>
+            <% if session[:user].referee? %>
+            <li> <%= link_to "My Page", bids_path %>
+            <% end %>
             <li> <%= link_to "Logout",  :controller => "users", :action => "logout" %></li>
         <% end %> 
           <li><%= link_to "Home",       :controller => "pages",     :action => "index" %></li>

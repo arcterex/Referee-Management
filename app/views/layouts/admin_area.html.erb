@@ -8,31 +8,30 @@
 <%= render 'layouts/stylesheets' %>
 </head>
 <body>
-  <div id="header">
-    <h1>Referee Management System</h1>
-    <h3>Administration</h3>
-  </div>
-  <div id="menu">
-    <ul>
-        <li> <%= link_to "Site Home", :controller => "pages",    :action => "index" %></li>
-        <li> <%= link_to "Games",     :controller => "games",    :action => "index" %></li>
-        <li> <%= link_to "Fields",    :controller => "fields",   :action => "index" %></li>
-    </ul>
-    Master Admin Functions:
-    <ul>
-        <li> <%= link_to "Admins",     :controller => "admins",     :action => "index" %></li>
-        <li> <%= link_to "Clubs",      :controller => "clubs",      :action => "index" %></li>
-        <li> <%= link_to "Users",      :controller => "users",      :action => "index" %></li>
-        <li> <%= link_to "Age Groups", :controller => "ages",       :action => "index" %></li>
-        <li> <%= link_to "Levels",     :controller => "levels",     :action => "index" %></li>
-    </ul>
-  </div>
-  <%= render 'layouts/flash_notices' %>
-  <div id="content">
-    <%= yield -%>
-  </div>
-  <div id="sidebar"></div>
-  </div>
+    <div class="container">
+        <h1>Referee Management System</h1>
+        <h3>Administration</h3>
+            <div id="sidecol" class="span-4 last adminnavmenu">
+                <ul>
+                    <li> <%= link_to "Site Home", :controller => "pages",    :action => "index" %></li>
+                    <li> <%= link_to "Games",     :controller => "games",    :action => "index" %></li>
+                    <li> <%= link_to "Fields",    :controller => "fields",   :action => "index" %></li>
+                </ul>
+                Master Admin Functions:
+                <ul>
+                    <li> <%= link_to "Admins",     :controller => "admins",     :action => "index" %></li>
+                    <li> <%= link_to "Clubs",      :controller => "clubs",      :action => "index" %></li>
+                    <li> <%= link_to "Users",      :controller => "users",      :action => "index" %></li>
+                    <li> <%= link_to "Age Groups", :controller => "ages",       :action => "index" %></li>
+                    <li> <%= link_to "Levels",     :controller => "levels",     :action => "index" %></li>
+                </ul>
+            </div>
+            <div id="maincol" class="span-20">
+                <%= render 'layouts/flash_notices' %>
+                <%= yield -%>
+            </div>
+        </div>
+     </div>
   <%= "DEBUG PARAMS: "  + debug(params)  if Rails.env.development? %>
   <%= "DEBUG SESSION: " + debug(session) if Rails.env.development? %>
 </body>

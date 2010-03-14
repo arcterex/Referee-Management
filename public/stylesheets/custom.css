@@ -1,5 +1,5 @@
 .container {
-  width: 710px;
+/*  width: 710px; */
 }
 body {
   background: #fff;
@@ -86,4 +86,9 @@ a.signup_button {
 }
 
 #menu {
+}
+
+.adminnavmenu {
+	background:#222222;
+	background-color:#C3D9FF;
 }
