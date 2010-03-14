@@ -17,13 +17,11 @@ class User < ActiveRecord::Base
   validates_uniqueness_of   :username, :email
   validates_presence_of     :club_id
   validates_format_of       :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i, :message => "Invalid email"
-  
-  attr_protected :id, :salt
-  
-  attr_accessor :password, :password_confirmation
-
   # valid games for the user
   has_many :eligible_games, :through => :age, :source => :games
+  
+  attr_protected :id, :salt
+  attr_accessor :password, :password_confirmation
 
   # authentication methods
   

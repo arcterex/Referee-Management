@@ -1,0 +1,17 @@
+<table>
+    <tr>
+        <th>Referee</th>
+        <th>Game</th>
+        <th>Action</th>
+    </tr>
+<% game.bids.each do |bid| %>
+    <tr>
+        <td><%= bid.user.name %></td>
+        <td><%= bid.game.home %> vs. <%= bid.game.away %> at <%= prettytime(bid.game.gametime) %></td>
+        <td>
+            <% [ 'Main', 'Alternate', 'Ignore' ].each do |option| %>
+            <%= radio_button_tag bid.id, option %> <%= option %>
+            <% end %>
+        </td>
+<% end %>
+</table>    

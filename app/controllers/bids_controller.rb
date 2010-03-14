@@ -20,10 +20,12 @@ class BidsController < ApplicationController
     # take the input of the bids and save them, then return to the bids page
     @user  = User.find_by_id(session[:user])
     # Get all bids of this user and delete them
-    @user.bids.delete_all
+    bids = @user.bids
+    bids.each { |x| x.destroy }
     # add in the new bids
     if params[:game_id] then
       params[:game_id].each { |id|
+        logger.debug "Setting for #{@user.id} and game #{id}"
         Bid.create!( :user_id => @user.id, :game_id => id )
       }
     end

@@ -1,2 +1,14 @@
-<h1>Assignors#index</h1>
-<p>Find me in app/views/assignors/index.html.erb</p>
+<h1>Assignments</h1>
+<p>The following is a list of referee bids that you can assign. The referee
+    is required to confirm that they will be at the game you assign them to.</p>
+
+    <%= render 'layouts/flash_notices' %>
+
+<% form_tag assignors_path do -%>
+    <% @games.each do |game| %>
+        <h3><%= game.home %> vs. <%= game.away %></h3>
+        <h4><%= prettytime(game.gametime)%> on <%= game.field.name %> Field</h4>
+        <%= render :partial => 'biddisplay', :locals => { :game => game } %>
+    <% end %>
+    <%= submit_tag 'Save' %>
+<% end %>
