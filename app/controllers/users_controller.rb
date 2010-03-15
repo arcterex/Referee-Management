@@ -34,7 +34,7 @@ class UsersController < ApplicationController
       @user = User.find_by_id(params[:id])
       if @user then
         @user.destroy
-        redirect_to(@user)
+        redirect_to(admins_url)
       else 
         flash[:error] = "Unable to find that User"
         redirect_to :action => "index"
