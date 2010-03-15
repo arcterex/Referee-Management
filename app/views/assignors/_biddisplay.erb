@@ -9,8 +9,8 @@
         <td><%= bid.user.name %></td>
         <td><%= bid.game.home %> vs. <%= bid.game.away %> at <%= prettytime(bid.game.gametime) %></td>
         <td>
-            <% [ 'Main', 'Alternate', 'Ignore' ].each do |option| %>
-            <%= radio_button_tag bid.id, option %> <%= option %>
+            <% @statuses.each do |status| %>
+            <%= radio_button_tag, bid.id, status.id %> <%= status.name %>
             <% end %>
         </td>
 <% end %>

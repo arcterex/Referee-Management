@@ -7,6 +7,7 @@ class AssignorsController < ApplicationController
     # they've bid on already
     @user = User.find_by_id( session[:user] )
     @games = @user.club.games
+    @statuses = Status.all
   end
   
   def create
