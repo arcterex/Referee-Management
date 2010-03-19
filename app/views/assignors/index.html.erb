@@ -3,12 +3,19 @@
     is required to confirm that they will be at the game you assign them to.</p>
 
     <%= render 'layouts/flash_notices' %>
-
+<table>
 <% form_tag assignors_path do -%>
-    <% @games.each do |game| %>
-        <h3><%= game.home %> vs. <%= game.away %></h3>
-        <h4><%= prettytime(game.gametime)%> on <%= game.field.name %> Field</h4>
+    <% @bidgames.each do |game| %>
+        <tr class="gameheader">
+            <td colspan="3"><%= game.home %> vs. <%= game.away %> at 
+            <%= prettytime(game.gametime)%> on
+            <%= game.field.name %> Field</td>
+        </tr>
         <%= render :partial => 'biddisplay', :locals => { :game => game } %>
     <% end %>
-    <%= submit_tag 'Save' %>
+</table>
+<%= submit_tag 'Save' %>
 <% end %>
+
+<p>The following is a list of the assignments that you have already set up.</p>
+<%= @assignments.size %>

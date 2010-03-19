@@ -8,11 +8,11 @@
 </tr>
 <% games.each do |game| %>
 <tr>
-    <td><%=h game.gametime.strftime("%D at %I:%M%p") %></td>
+    <td><%=h prettytime(game.gametime) %></td>
     <td><%=h game.home %></td>
     <td><%=h game.away %></td>
-    <td><%=h game.level.name %></td>
-    <td><%=h game.age.name %></td>
+    <td><%=h game.level && game.level.name %></td>
+    <td><%=h game.age && game.age.name %></td>
 </tr>
 <% end %>
 </table>

@@ -1,18 +1,17 @@
-<table>
-    <tr>
-        <th>Referee</th>
-        <th>Game</th>
-        <th>Action</th>
-    </tr>
+<tr class="assigngameheader">
+    <td>Referee</td>
+    <td>Game</td>
+    <td>Action</td>
+</tr>
 <% game.bids.each do |bid| %>
-    <tr>
-        <td><%= bid.user.name %></td>
-        <td><%= bid.game.home %> vs. <%= bid.game.away %> at <%= prettytime(bid.game.gametime) %></td>
-        <td>
-            <% @statuses.each do |status| %>
-            <%= radio_button_tag bid.id, status.id %> <%= status.name %>
-            <% end %>
-            <%= radio_button_tag bid.id, 0, true %> Ignore
-        </td>
+<tr>
+    <td><%= link_to bid.user.name, bid.user %></td>
+    <td><%= bid.game.home %> vs. <%= bid.game.away %> at <%= prettytime(bid.game.gametime) %></td>
+    <td>
+        <% @statuses.each do |status| %>
+        <%= radio_button_tag "game[#{game.id}][#{bid.id}]", status.id %> <%= status.name %>
+        <% end %>
+        <%= radio_button_tag "game[#{game.id}][#{bid.id}]", 0, true %> n/a
+    </td>
+</tr>
 <% end %>
-</table>    

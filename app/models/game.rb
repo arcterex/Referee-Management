@@ -18,6 +18,7 @@ class Game < ActiveRecord::Base
   belongs_to :level
   belongs_to :age
   has_many   :bids
+  has_many   :assignments
   validates_presence_of :field_id,  :on => :save, :message => "can't be blank"
   validates_presence_of :gametime,  :on => :save, :message => "can't be blank"
   validates_presence_of :home,      :on => :save, :message => "can't be blank"
