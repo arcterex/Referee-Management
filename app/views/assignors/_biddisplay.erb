@@ -6,7 +6,7 @@
 <% game.bids.each do |bid| %>
 <tr>
     <td><%= link_to bid.user.name, bid.user %></td>
-    <td><%= bid.game.home %> vs. <%= bid.game.away %> at <%= prettytime(bid.game.gametime) %></td>
+    <td><%= bid.game.home %> vs. <%= bid.game.away %> at <%= pretty_time(bid.game.gametime) %></td>
     <td>
         <% @statuses.each do |status| %>
         <%= radio_button_tag "game[#{game.id}][#{bid.id}]", status.id %> <%= status.name %>

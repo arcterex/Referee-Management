@@ -8,7 +8,7 @@
 </tr>
 <% games.each do |game| %>
 <tr>
-    <td><%=h prettytime(game.gametime) %></td>
+    <td><%=h pretty_time(game.gametime) %></td>
     <td><%=h game.home %></td>
     <td><%=h game.away %></td>
     <td><%=h game.level && game.level.name %></td>

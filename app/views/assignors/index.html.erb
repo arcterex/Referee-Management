@@ -8,7 +8,7 @@
     <% @bidgames.each do |game| %>
         <tr class="gameheader">
             <td colspan="3"><%= game.home %> vs. <%= game.away %> at 
-            <%= prettytime(game.gametime)%> on
+            <%= pretty_time(game.gametime)%> on
             <%= game.field.name %> Field</td>
         </tr>
         <%= render :partial => 'biddisplay', :locals => { :game => game } %>
@@ -18,4 +18,19 @@
 <% end %>
 
 <p>The following is a list of the assignments that you have already set up.</p>
-<%= @assignments.size %>
+<table>
+    <tr>
+       <th>Game</th>
+       <th>Referee</th>
+       <th>Assignment</th>
+       <th>Action</th> 
+    </tr>
+<% @assignments.each do |assignment| %>
+    <tr>
+        <td><%= pretty_game(assignment.game) %></td>
+        <td><%= assignment.user.name %></td>
+        <td><%= assignment.status.name %></td>
+        <td><%= link_to "Edit", assignment %> | <%= link_to 'Destroy', assignment, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+<% end %>
+</table>

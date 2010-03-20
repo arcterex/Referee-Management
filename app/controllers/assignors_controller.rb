@@ -8,19 +8,31 @@ class AssignorsController < ApplicationController
     @user = User.find_by_id( session[:user] )
     @statuses = Status.all
     
+    # list of assignments that this assignor has assigned
+    @assignments = Assignment.assigned_by(@user)
+    assignment_array = Array.new
+    @assignments.each do |x|
+      assignment_array << { :user_id => x.user_id, :game_id => x.game_id }
+    end
     
     # TODO - need to get eligable games for this assignor for regions
     # get a list of the bids that are in my region/club
+    # Remove any bids that already have an assignment
     @allgames = @user.club.games
     @bidgames = Array.new
     @allgames.each do |g|
+      allbids = g.bids unless g.bids.empty?
+      # TODO - remove any bids that are already in the @assignments array
+      onlybids = allbids.collect do |b|
+        logger.debug b.inspect
+        
+      end
+      # allbids.select { |b| @}
       if ! g.bids.empty? then
         @bidgames << g
       end
     end
     
-    # list of assignments that this assignor has assigned
-    @assignments = Assignment.assigned_by(@user)
   end
   
   def create
