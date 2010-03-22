@@ -29,4 +29,7 @@ class Game < ActiveRecord::Base
     { :conditions => { :age_id => user.age_id } }
   }
   
+  # named_scope :bid_on, lambda { |user|
+  #   { :conditions => }
+  # }
 end

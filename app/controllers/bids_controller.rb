@@ -19,9 +19,7 @@ class BidsController < ApplicationController
   def create
     # take the input of the bids and save them, then return to the bids page
     @user  = User.find_by_id(session[:user])
-    # Get all bids of this user and delete them
-    bids = @user.bids
-    bids.each { |x| x.destroy }
+
     # add in the new bids
     if params[:game_id] then
       params[:game_id].each { |id|
@@ -45,5 +43,14 @@ class BidsController < ApplicationController
       # send to the user login controller
       redirect_to :controller => "users", :action => "login"
     end
+  end
+  
+  def destroy
+    @bid = Bid.find(params[:id])
+    @bid.destroy
+    
+    # TODO - send notification of bid change to admin
+    
+    redirect_to(bids_path)
   end
 end

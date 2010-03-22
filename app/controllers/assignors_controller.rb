@@ -25,7 +25,7 @@ class AssignorsController < ApplicationController
       # TODO - remove any bids that are already in the @assignments array
       onlybids = allbids.collect do |b|
         logger.debug b.inspect
-        
+        if assignment.array
       end
       # allbids.select { |b| @}
       if ! g.bids.empty? then
