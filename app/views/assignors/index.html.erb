@@ -3,12 +3,34 @@
     is required to confirm that they will be at the game you assign them to.</p>
 
     <%= render 'layouts/flash_notices' %>
-
+<table>
 <% form_tag assignors_path do -%>
-    <% @games.each do |game| %>
-        <h3><%= game.home %> vs. <%= game.away %></h3>
-        <h4><%= prettytime(game.gametime)%> on <%= game.field.name %> Field</h4>
+    <% @bidgames.each do |game| %>
+        <tr class="gameheader">
+            <td colspan="3"><%= game.home %> vs. <%= game.away %> at 
+            <%= pretty_time(game.gametime)%> on
+            <%= game.field.name %> Field</td>
+        </tr>
         <%= render :partial => 'biddisplay', :locals => { :game => game } %>
     <% end %>
-    <%= submit_tag 'Save' %>
+</table>
+<%= submit_tag 'Save' %>
 <% end %>
+
+<p>The following is a list of the assignments that you have already set up.</p>
+<table>
+    <tr>
+       <th>Game</th>
+       <th>Referee</th>
+       <th>Assignment</th>
+       <th>Action</th> 
+    </tr>
+<% @assignments.each do |assignment| %>
+    <tr>
+        <td><%= pretty_game(assignment.game) %></td>
+        <td><%= assignment.user.name %></td>
+        <td><%= assignment.status.name %></td>
+        <td><%= link_to "Edit", assignment %> | <%= link_to 'Destroy', assignment, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+<% end %>
+</table>

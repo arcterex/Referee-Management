@@ -8,6 +8,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users
   map.resources :assignors
   map.resources :bids
+  map.resources :assignments
   
   # create the login page
   map.login  '/login', :controller => "users", :action => "login"

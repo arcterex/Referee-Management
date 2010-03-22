@@ -16,15 +16,17 @@ to submit them to the system.</p>
 <% @games.each do |game|  %>
     <% bid = Bid.new %>
     <% bid = Bid.find( :first, :conditions => { :user_id => @user.id, :game_id => game.id })%>
-    <tr>
-        <td><%= link_to game.field.name, game.field %></td>
-        <td><%= game.home %></td>
-        <td><%= game.away %></td>
-        <td><%= prettytime(game.gametime) %></td>
-        <td>
-            <%= check_box_tag "game_id[]", game.id, @user.bids.include?(bid ? bid : 0) %>
-        </td>
-    </tr>
+    <% if not @user.bids.include?(bid)%>
+        <tr>
+            <td><%= link_to game.field.name, game.field %></td>
+            <td><%= game.home %></td>
+            <td><%= game.away %></td>
+            <td><%= pretty_time(game.gametime) %></td>
+            <td>
+                <%= check_box_tag "game_id[]", game.id, @user.bids.include?(bid ? bid : 0) %>
+            </td>
+        </tr>
+    <% end %>
 <% end %>
     <tr>
         <td colspan="5">
@@ -34,3 +36,27 @@ to submit them to the system.</p>
 <% end %>
 </table>
 <% end -%>
+
+<% if @user.bids %>
+<p>The following is a list of games that you have applied to referee for.  If you wish to 
+    notify the club administrator that you are unable to referee for one of them, click the 
+    'delete bid' button beside the game in question.</p>
+<table>
+    <tr>
+        <th>Field</th>
+        <th>Home Team</th>
+        <th>Away Team</th>
+        <th>Date/Time</th>
+        <th>Select</th>
+    </tr>
+    <% @user.bids.each do |bid| %>
+    <tr>
+        <td><%= link_to bid.game.field.name, bid.game.field %></td>
+        <td><%= bid.game.home %></td>
+        <td><%= bid.game.away %></td>
+        <td><%= pretty_time(bid.game.gametime) %></td>
+        <td><%= link_to 'Delete Bid', bid, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+    <% end %>
+</table>
+<% end %>

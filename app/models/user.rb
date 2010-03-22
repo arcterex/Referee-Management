@@ -3,6 +3,7 @@ require 'digest/sha1'
 class User < ActiveRecord::Base
   has_many    :fields
   has_many    :bids
+  has_many    :assignments
   belongs_to  :role
   belongs_to  :level
   belongs_to  :certification
