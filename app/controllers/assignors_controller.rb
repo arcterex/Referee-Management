@@ -23,10 +23,9 @@ class AssignorsController < ApplicationController
     @allgames.each do |g|
       allbids = g.bids unless g.bids.empty?
       # TODO - remove any bids that are already in the @assignments array
-      onlybids = allbids.collect do |b|
-        logger.debug b.inspect
-        if assignment.array
-      end
+      # onlybids = allbids.collect do |b|
+      #   logger.debug b.inspect
+      # end
       # allbids.select { |b| @}
       if ! g.bids.empty? then
         @bidgames << g
