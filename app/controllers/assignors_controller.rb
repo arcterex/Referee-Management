@@ -61,18 +61,6 @@ class AssignorsController < ApplicationController
         bid = bid_map[bid_id]
         Assignment.create!(:game_id => game_id, :status_id => status_id, :user_id => bid.user_id, :assignor_id => @user.id)
       end
-
-      # games.each do |game_id, bids|
-      #   bids.delete_if { |k,v| v == '0' }
-      #   next if bids.empty?
-      # 
-      #   bids.each do |bid_id, status_id|
-      #     bid = Bid.find(bid_id)
-      #     Assignment.create!(:game_id => game_id, :status_id => status_id, :assignor_id => @user.id, :user_id => bid.user_id)
-      #   end
-      # end
-      
-      flash[:notice] = "TODO - save assignments"
     end
     redirect_to assignors_path
   end
