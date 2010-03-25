@@ -10,10 +10,11 @@ class AssignorsController < ApplicationController
     
     # list of assignments that this assignor has assigned
     @assignments = Assignment.assigned_by(@user)
-    assignment_array = Array.new
-    @assignments.each do |x|
-      assignment_array << { :user_id => x.user_id, :game_id => x.game_id }
-    end
+    # assignment_array = Array.new
+    # # Turn the list of assignments into an array that can be used 
+    # @assignments.each do |x|
+    #   assignment_array << { :user_id => x.user_id, :game_id => x.game_id }
+    # end
     
     # TODO - need to get eligable games for this assignor for regions
     # get a list of the bids that are in my region/club
@@ -42,7 +43,8 @@ class AssignorsController < ApplicationController
       logger.debug "Dumping params"
       games = params[:game]
 
-      # {"6"=>{"53"=>"0"}, "7"=>{"48"=>"2", "54"=>"1"}, "1"=>{"46"=>"1", "49"=>"0"}, "3"=>{"50"=>"0"}, "4"=>{"47"=>"0", "51"=>"0"}, "5"=>{"52"=>"0"}}
+      # {"6"=>{"53"=>"0"}, "7"=>{"48"=>"2", "54"=>"1"}, "1"=>{"46"=>"1", "49"=>"0"}, 
+      # "3"=>{"50"=>"0"}, "4"=>{"47"=>"0", "51"=>"0"}, "5"=>{"52"=>"0"}}
       all_bids = {}
       games.each do |game_id, bids| 
         bids.each do |bid_id, status_id|
