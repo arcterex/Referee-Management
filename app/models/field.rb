@@ -13,17 +13,10 @@
 #
 
 class Field < ActiveRecord::Base
+  set_table_name  "Fields"
   has_many    :games
   belongs_to  :club
   validates_presence_of :name,    :on => :save, :message => "can't be blank"
   validates_presence_of :address, :on => :save, :message => "can't be blank"
   validates_presence_of :club_id, :on => :save, :message => "can't be blank"
-  
-  attr_accessor :link
-  def link=(val)
-    if val !~ /^http(s?):\/\// then
-      val = "http://" + val
-    end
-    @link = val
-  end
 end
