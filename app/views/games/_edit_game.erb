@@ -22,3 +22,7 @@
   <%= f.label :age, 'Age Group' %><br />
   <%= collection_select (:game, :age_id, Age.all, :id, :name, {:prompt => true }) %>
 </p>
+<p>
+  <%= f.label :notes %><br />
+  <%= f.text_area :notes %>
+</p>

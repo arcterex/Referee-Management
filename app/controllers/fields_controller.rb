@@ -14,6 +14,15 @@ class FieldsController < ApplicationController
   
   def update
     @field = Field.find_by_id(params[:id])
+
+    # ensure that the URL has the correct prefix, etc
+    if params[:field][:url].present? then
+      theurl = Addressable::URI.heuristic_parse(params[:field][:url])
+      unless theurl.nil? 
+        params[:field][:url] = theurl.normalize.display_uri.to_s
+      end
+    end
+
     if @field.update_attributes(params[:field])
       flash[:notice] = 'Field was successfully updated.'
       redirect_to :action => "index"

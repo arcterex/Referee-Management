@@ -1,3 +1,5 @@
+<%= GMap.header %>
+<%= @map.to_html %>
 <p>
   <b>Gametime:</b>
   <%=h @game.gametime.strftime("%D at %I:%M%p") %>
@@ -18,6 +20,13 @@
   <%=h @game.away %>
 </p>
 
-
+<p>
+    <b>Notes:</b>
+    <%= h @game.notes %>
+</p>
+<p>
+    <b>Map:</b>
+    <%= @map.div(:width => 600, :heigh => 400 ) %>
+</p>
 <%= link_to 'Edit', edit_game_path(@game) %> |
 <%= link_to 'Back', game_path %>

@@ -13,11 +13,7 @@
   <tr>
     <td><%=h field.name %></td>
     <td><%=h field.address %></td>
-    <td>
-    <% if field.link %> 
-        <%= link_to 'Field Link', field.link %>
-    <% end %>
-    </td>
+    <td><%= field.url.present? ? link_to('Link', field.url) : "" %></td>
     <td><%=h trim_by_words(field.notes,5) %></td>
     <td>
         <%= link_to 'Edit', edit_field_path(field) %> | 

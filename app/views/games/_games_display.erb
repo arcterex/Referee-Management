@@ -1,6 +1,7 @@
 <table>
 <tr>
     <th>Time</th>
+    <th>Field</th>
     <th>Home Team</th>
     <th>Away Team</th>
     <th>Level</th>
@@ -8,7 +9,9 @@
 </tr>
 <% games.each do |game| %>
 <tr>
-    <td><%=h pretty_time(game.gametime) %></td>
+    <td><%= link_to pretty_time(game.gametime), game %></td>
+    <td><%=h game.field.address %> 
+        <%= link_to_if(game.field.url.present?, '(map)', game.field.url) %></td>
     <td><%=h game.home %></td>
     <td><%=h game.away %></td>
     <td><%=h game.level && game.level.name %></td>
