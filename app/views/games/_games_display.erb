@@ -4,6 +4,7 @@
     <th>Field</th>
     <th>Home Team</th>
     <th>Away Team</th>
+    <th>Cup Game</th>
     <th>Level</th>
     <th>Age Group</th>
 </tr>
@@ -14,6 +15,7 @@
         <%= link_to_if(game.field.url.present?, '(map)', game.field.url) %></td>
     <td><%=h game.home %></td>
     <td><%=h game.away %></td>
+    <td><%= game.cup ? "Yes" : "" %></td>
     <td><%=h game.level && game.level.name %></td>
     <td><%=h game.age && game.age.name %></td>
 </tr>
