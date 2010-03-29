@@ -13,6 +13,7 @@
 #
 
 class Field < ActiveRecord::Base
+  # TODO - reset field name back to 'fields'
   set_table_name  "Fields"
   has_many    :games
   belongs_to  :club
