@@ -1,0 +1,10 @@
+<h2><%= link_to club.name, club %></h2>
+    <% if club.fields.empty? then %>
+    <p><em>Currently There are no fields or games setup</em></p>
+    <% else %>
+    <table>
+        <% club.fields.each do |field| %>
+            <%= render :partial => "fields/field_display", :locals => { :field => field } %>
+        <% end %>
+    </table>
+    <% end %>

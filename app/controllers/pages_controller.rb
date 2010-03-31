@@ -1,10 +1,10 @@
 class PagesController < ApplicationController
   def index
-   @fields = Field.all
+    @clubs = Club.all
   end
   
   def home
-      @fields = Field.all
+    @fields = Field.all
   end
 
 end

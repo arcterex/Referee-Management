@@ -1,3 +1,9 @@
+<h1><%= @club.name %></h1>
+<p>Here are the fields that are in the <%= @club.name %> juristriction.</p>
+<%= render :partial => 'clubs/club_display', :locals => { :club => @club } %>
+
+<!--
+    TODO - move this all into a separate admin controller?
 <p>
   <b>Name:</b>
   <%=h @club.name %>
@@ -26,3 +32,4 @@
 
 <%= link_to 'Edit', edit_club_path(@club) %> |
 <%= link_to 'Back', clubs_path %>
+-->
