@@ -15,7 +15,7 @@
                 <ul>
                     <li> <%= link_to "Site Home", :controller => "pages",    :action => "index" %></li>
                     <li> <%= link_to "Games",     :controller => "games",    :action => "index" %></li>
-                    <li> <%= link_to "Fields",    :controller => "fields",   :action => "index" %></li>
+                    <li> <%= link_to "Fields",   club_fields_path(@club) %></li>
                 </ul>
                 Master Admin Functions:
                 <ul>

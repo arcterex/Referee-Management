@@ -6,6 +6,7 @@ class FieldsController < ApplicationController
   end
   def show
     @field = Field.find_by_id(params[:id])
+    @club = @field.club
   end
   
   def edit
@@ -13,7 +14,8 @@ class FieldsController < ApplicationController
   end
   
   def update
-    @field = Field.find_by_id(params[:id])
+    @field = Field.find(params[:id])
+    @club = @field.club
 
     # ensure that the URL has the correct prefix, etc
     if params[:field][:url].present? then
@@ -25,38 +27,42 @@ class FieldsController < ApplicationController
 
     if @field.update_attributes(params[:field])
       flash[:notice] = 'Field was successfully updated.'
-      redirect_to :action => "index"
+      redirect_to club_fields_path(@club)
     else
-      # FIXME - why do I need to do this here?
-      @fields = Field.all
-      render :action => "index"
+      flash[:error] = 'Error updating field.'
+      redirect_to club_fields_path(@club)
     end
   end
   
   # create a new field
   def new
     @field = Field.new
+    @club = Club.find(params[:club_id])
   end
   
   def create
-    @field = Field.new(params[:field])
+    @club  = Club.find(params[:club_id])
+    @field = @club.fields.new(params[:field])
     if @field.save
       flash[:notice] = 'Field was successfully created.'
-      redirect_to :action => "index"
+      redirect_to club_fields_path
     else
-      render :action => "new"
+      flash[:error] = 'Error creating field.'
+      render :action => "edit"
     end
   end
   
   # delete a field
   def destroy
     @field = Field.find_by_id(params[:id])
+    @club = @field.club
     if @field then
       @field.destroy
-      redirect_to :action => "index"
+      flash[:notice] = "Deleted field."
+      redirect_to club_fields_path(@club)
     else 
       flash[:error] = "Unable to find that field"
-      redirect_to :action => "index"
+      redirect_to club_fields_path(@club)
     end
   end
 end

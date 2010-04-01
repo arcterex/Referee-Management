@@ -1,6 +1,6 @@
 <h1>Editing Field</h1>
 
-<% form_for(@field) do |f| %>
+<% form_for([@club, @field]) do |f| %>
   <%= f.error_messages %>
   <%= render :partial => "edit_field", :locals => { :f => f } %>
   <p>
@@ -8,4 +8,4 @@
   </p>
 <% end %>
 
-<%= link_to 'Back', fields_path %>
+<%= link_to 'Back', club_fields_path %>

@@ -5,7 +5,7 @@
 
 <p>
   <b>Field:</b>
-  <a href="<%=h @game.field.link %>"><%=h @game.field.name %></a>
+  <a href="<%=h @game.field.url %>"><%=h @game.field.name %></a>
   <%= link_to_if(@game.field.url.present?, '(map)', @game.field.url) %></td>
   
 </p>
@@ -27,5 +27,7 @@
     <b>Notes:</b>
     <%= h @game.notes %>
 </p>
+<!-- TODO only display this if the user is authenticated 
 <%= link_to 'Edit', edit_game_path(@game) %> |
 <%= link_to 'Back', game_path %>
+-->

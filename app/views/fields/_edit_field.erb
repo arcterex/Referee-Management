@@ -1,8 +1,4 @@
 <p>
-  <%= f.label :club_id, "Club" %><br />
-  <%= collection_select (:field, :club_id, Club.all, :id, :name, {:prompt => true }) %>
-</p>
-<p>
   <%= f.label :name %><br />
   <%= f.text_field :name %>
 </p>
