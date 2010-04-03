@@ -13,17 +13,16 @@
         <h3>Administration</h3>
             <div id="sidecol" class="span-4 last adminnavmenu">
                 <ul>
-                    <li> <%= link_to "Site Home", :controller => "pages",    :action => "index" %></li>
-                    <li> <%= link_to "Games",     :controller => "games",    :action => "index" %></li>
-                    <li> <%= link_to "Fields",   club_fields_path(@club) %></li>
+                    <li> <%= link_to "Site Home", root_path               %></li>
+                    <li> <%= link_to "Fields",    club_fields_path(@club) %></li>
                 </ul>
                 Master Admin Functions:
                 <ul>
-                    <li> <%= link_to "Admins",     :controller => "admins",     :action => "index" %></li>
-                    <li> <%= link_to "Clubs",      :controller => "clubs",      :action => "index" %></li>
-                    <li> <%= link_to "Users",      :controller => "users",      :action => "index" %></li>
-                    <li> <%= link_to "Age Groups", :controller => "ages",       :action => "index" %></li>
-                    <li> <%= link_to "Levels",     :controller => "levels",     :action => "index" %></li>
+                    <li> <%= link_to "Admins",     admins_path %></li>
+                    <li> <%= link_to "Clubs",      clubs_path  %></li>
+                    <li> <%= link_to "Users",      users_path  %></li>
+                    <li> <%= link_to "Age Groups", ages_path   %></li>
+                    <li> <%= link_to "Levels",     levels_path %></li>
                 </ul>
             </div>
             <div id="maincol" class="span-20">

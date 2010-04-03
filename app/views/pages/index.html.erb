@@ -1,6 +1,8 @@
 <h1>Referee Site</h1>
 <p>This is the awesome and amazing referee management and game showing site.</p>
 <p>Please select the club that you are interested in.</p>
+<ul>
 <% @clubs.each do |club| %>
-    <%= render :partial => 'clubs/club_display', :locals => { :club => club } %>
+    <li> <%= link_to club.name, club_path(club) %></li>
 <% end %>
+</UL>

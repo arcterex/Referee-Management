@@ -1,4 +1,6 @@
-<h2><%= link_to club.name, club %></h2>
+<h1><%= club.name %></h1>
+<p>Here are the fields that are in the <%= club.name %> juristriction.</p>
+
     <% if club.fields.empty? then %>
     <p><em>Currently There are no fields or games setup</em></p>
     <% else %>

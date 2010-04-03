@@ -1,16 +1,17 @@
 class FieldsController < ApplicationController
-  layout "admin_area"
+#  layout "admin_area"
 
   def index
-    @fields = Field.all
+    @club = Club.find(params[:club_id])
+    @fields = @club.fields
   end
+  
   def show
-    @field = Field.find_by_id(params[:id])
-    @club = @field.club
+    @field = Field.find(params[:id])
   end
   
   def edit
-    @field = Field.find_by_id(params[:id])
+    @field = Field.find(params[:id])
   end
   
   def update

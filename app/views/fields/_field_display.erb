@@ -1,5 +1,5 @@
     <tr>
-        <th><%= field.name %> (<%=field.url.present? ? link_to(field.address, field.url) : field.address %>)</th>
+        <th><%= link_to field.name, field_path(field) %> (<%=field.url.present? ? link_to(field.address, field.url) : field.address %>)</th>
     </tr>
     <% if field.games.empty? then %>
     <tr>

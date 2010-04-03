@@ -11,11 +11,12 @@
 
 <% @fields.each do |field| %>
   <tr>
-    <td><%=h field.name %></td>
+    <td><%= link_to field.name, field_path(field) %></td>
     <td><%=h field.address %></td>
     <td><%= field.url.present? ? link_to('Link', field.url) : "" %></td>
     <td><%=h trim_by_words(field.notes,5) %></td>
     <td>
+        <%= link_to 'Games', field_games_path(field) %> |
         <%= link_to 'Edit', edit_field_path(field) %> | 
         <%= link_to 'Destroy', field, :confirm => 'Are you sure?', :method => :delete %>
     </td>
@@ -25,4 +26,4 @@
 
 <br />
 
-<%= link_to 'New Field', new_club_field_path %>
+<%= link_to 'New Field', new_club_field_path %> | <%= link_to 'Back To Club', club_path(@club) %>

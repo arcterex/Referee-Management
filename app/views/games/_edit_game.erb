@@ -3,10 +3,6 @@
   <%= f.datetime_select :gametime %>
 </p>
 <p>
-  <%= f.label :field_id %><br />
-  <%= collection_select (:game, :field_id, Field.all, :id, :name, {:prompt => true }) %>
-</p>
-<p>
   <%= f.label :home, 'Home Team' %><br />
   <%= f.text_field :home %>
 </p>
