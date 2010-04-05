@@ -2,6 +2,10 @@ class ClubsController < ApplicationController
 #  layout "admin_area"
   # GET /clubs
   # GET /clubs.xml
+  before_filter :except => :login do |controller|
+    controller.authorize({"required_user_role" => "master"})
+  end
+  
   def index
     @clubs = Club.all
 

@@ -1,25 +1,23 @@
 class UsersController < ApplicationController
   layout 'admin_area'
+  before_filter :except => :login do |controller|
+    controller.authorize({"required_user_role" => "admin"})
+  end
   
-#  before_filter :login_required, :only => :login
-
   def login
     if request.post?
-      logger.debug "Authorizing #{params[:user][:username]} / #{params[:user][:password]}"
       if session[:user] = User.authenticate(params[:user][:username], params[:user][:password])
         flash[:message]  = "Login successful"
-        # redirect implicitly to the page for the user (for now)
-        #redirect_to_stored
-        logger.debug "user #{params[:user]} logged in"
         if session[:user].referee? then
-          logger.debug "sending to bids (ref)"
-          redirect_to :controller=>'bids', :action=>'index'
+          flash[:notice] = "Sending to Referee page..."
+          redirect_to bids_path
+        elsif session[:user].assignor? then
+          flash[:notice] = "Sending to Assignor page..."
+          redirect_to assignors_path
+        else
+          flash[:notice] = "Sending to original page..."
+          redirect_to_stored
         end
-        if session[:user].assignor? then
-          logger.debug "sending to assigns (assignor)"
-          redirect_to :controller=>'assignors', :action=>'index'
-        end
-        logger.debug "Fallthrough, no user type!"
       else
         flash[:warning] = "Login unsuccessful"
       end
@@ -37,7 +35,7 @@ class UsersController < ApplicationController
         redirect_to(admins_url)
       else 
         flash[:error] = "Unable to find that User"
-        redirect_to :action => "index"
+        redirect_to users_path
       end
   end
 
@@ -45,15 +43,14 @@ class UsersController < ApplicationController
     @user = User.find_by_id(params[:id])
   end
 
-
   def update
     @user = User.find_by_id(params[:id])
 
     if @user.update_attributes(params[:user])
       flash[:notice] = 'User was successfully updated.'
-      redirect_to :action => "index"
+      redirect_to users_path
     else
-      render :action => "edit"
+      redirect_to edit_user_path
     end
   end
 
@@ -70,17 +67,16 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       flash[:notice] = 'User was successfully created.'
-      redirect_to :action => "index"
+      redirect_to users_path
     else
-      render :action => "new"
+      flash[:error] = "Error saving user."
+      render :action => "edit"
     end
   end
   
   def logout
     session[:user] = nil
     flash[:message] = 'Logged out'
-    redirect_to :controller => "pages", :action => 'index'
-#    redirect_to :action => 'login'
-  end
-  
+    redirect_to root_path
+  end  
 end

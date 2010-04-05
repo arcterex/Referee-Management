@@ -49,16 +49,17 @@ class User < ActiveRecord::Base
     self.save
     # Notifications.deliver_forgot_password(self.email, self.login, new_pass)
   end
+
   
   def referee?
-    if self.role.name =~ /referee/i
+    if self.role.name.downcase == "referee"
       return true
     end
     false
   end
   
   def assignor?
-    if self.role.name =~ /assignor/i
+    if self.role.name.downcase == "assignor"
       return true
     end
     false

@@ -7,10 +7,11 @@
             <% else session[:user].assignor? %>
             <li> <%= link_to "My Page", assignors_path %>
             <% end %>
-            <li> <%= link_to "Logout",  :controller => "users", :action => "logout" %></li>
+            <li> <%= link_to "Logout", logout_path %></li>
+            <li><%= link_to "Home",    root_url %></li>
+        <% else %>
+            <li><%= link_to "Login",      login_path %>
         <% end %> 
-          <li><%= link_to "Home",       :controller => "pages",     :action => "index" %></li>
-          <li><%= link_to "Login",      login_path %>
         </ul>
       </div>
 
