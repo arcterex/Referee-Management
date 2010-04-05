@@ -1,5 +1,8 @@
 class GamesController < ApplicationController
 #  layout "admin_area"
+  before_filter :except => [:login,:show] do |controller|
+    controller.authorize({"required_user_role" => "admin"})
+  end
   
   def show
     @game = Game.find_by_id(params[:id])

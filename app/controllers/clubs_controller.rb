@@ -1,8 +1,7 @@
 class ClubsController < ApplicationController
 #  layout "admin_area"
-  # GET /clubs
-  # GET /clubs.xml
-  before_filter :except => :login do |controller|
+
+  before_filter :except => [:login,:show] do |controller|
     controller.authorize({"required_user_role" => "master"})
   end
   

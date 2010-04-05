@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  layout 'admin_area'
+#  layout 'admin_area'
   before_filter :except => :login do |controller|
     controller.authorize({"required_user_role" => "admin"})
   end
@@ -16,7 +16,9 @@ class UsersController < ApplicationController
           redirect_to assignors_path
         else
           flash[:notice] = "Sending to original page..."
-          redirect_to_stored
+          logger.debug "Redirect to stored club page"
+          redirect_to club_path(session[:user].club)
+#          redirect_to_stored
         end
       else
         flash[:warning] = "Login unsuccessful"

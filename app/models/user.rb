@@ -50,6 +50,24 @@ class User < ActiveRecord::Base
     # Notifications.deliver_forgot_password(self.email, self.login, new_pass)
   end
 
+  def home_page
+    if self.referee?
+      "bids"
+    end
+    if self.assignor?
+      "assignors"
+    end
+    if self.clubadmin?
+      "some/admin/page"
+    end
+  end
+  
+  def clubadmin?
+    if self.role.name.downcase == "admin"
+      return true
+    end
+    false
+  end
   
   def referee?
     if self.role.name.downcase == "referee"

@@ -1,17 +1,14 @@
-      <div id="header">
-        <ul class="navigation round">
-        <% if session[:user] %>
-            <li> Logged in as <%= session[:user].name %></li>
-            <% if session[:user].referee? %>
-            <li> <%= link_to "My Page", bids_path %>
-            <% else session[:user].assignor? %>
-            <li> <%= link_to "My Page", assignors_path %>
-            <% end %>
-            <li> <%= link_to "Logout", logout_path %></li>
-            <li><%= link_to "Home",    root_url %></li>
-        <% else %>
-            <li><%= link_to "Login",      login_path %>
-        <% end %> 
-        </ul>
-      </div>
+<div id="header">
+    <ul class="navigation round">
+    <% if session[:user] %>
+        <li>Logged in as <%= session[:user].name %></li>
+        <li><%= link_to "My Page", session[:user].home_page %>
+        <li><%= link_to "Logout",  logout_path %></li>
+        <li><%= link_to "Home",    club_path(session[:user].club) %></li>
+    <% else %>
+        <li><%= link_to "Home",  root_url %></li>
+        <li><%= link_to "Login", login_path %></li>
+    <% end %> 
+    </ul>
+</div>
 

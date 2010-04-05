@@ -1,6 +1,9 @@
 class FieldsController < ApplicationController
 #  layout "admin_area"
-
+  before_filter :except => [:login,:show] do |controller|
+    controller.authorize({"required_user_role" => "admin"})
+  end
+  
   def index
     @club = Club.find(params[:club_id])
     @fields = @club.fields

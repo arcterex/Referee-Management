@@ -1,8 +1,6 @@
 <h1>Assignments</h1>
 <p>The following is a list of referee bids that you can assign. The referee
     is required to confirm that they will be at the game you assign them to.</p>
-
-    <%= render 'layouts/flash_notices' %>
 <table>
 <% form_tag assignors_path do -%>
     <% @bidgames.each do |game| %>

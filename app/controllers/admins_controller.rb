@@ -1,5 +1,9 @@
 class AdminsController < ApplicationController
-  layout "admin_area"
+#  layout "admin_area"
+  before_filter :except => :login do |controller|
+    controller.authorize({"required_user_role" => "master"})
+  end
+
   # GET /admins
   # GET /admins.xml
   def index
