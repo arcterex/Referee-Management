@@ -31,16 +31,12 @@ class ApplicationController < ActionController::Base
     end
   end
   
-  def authorize(vars)
-    logger.debug "xxx got vars of #{vars}"
-    logger.debug vars.inspect
-    
+  def authorize(vars)    
     if User.find_by_id(session[:user]) then
-      #&& session[:user].referee? then
-      logger.debug vars.inspect
-      puts "Getting required auth of #{vars["required_user_role"]}"
-      puts "user has #{session[:user].role.name.downcase}"
-      if session[:user].role.name.downcase == vars["required_user_role"]
+      
+      # current role matches or they are a master
+      if session[:user].role.name.downcase == "master" ||
+         session[:user].role.name.downcase == vars["required_user_role"]
         return
       else
         # role doesn't match
