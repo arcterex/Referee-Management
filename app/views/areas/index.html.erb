@@ -1,0 +1,21 @@
+<h1>Club Areas</h1>
+<p>These are the sub-areas defined in the <% @club.name %> club.</p>
+<table>
+    <tr>
+        <th>Area</th>
+        <th>Actions</th>
+    </tr>
+<% @areas.each do |area| %>
+    <tr>
+        <td><%= area.name %></td>
+        <td>
+            <%= link_to "Fields", "/club/area/fields" %> |
+            <%= link_to 'Edit', edit_area_path(area) %> | 
+            <%= link_to 'Destroy', area, :confirm => 'Are you sure?', :method => :delete %>
+        </td>
+    </tr>
+<% end %>
+</table>
+<br />
+
+<%= link_to 'New Area', new_club_area_path %> | <%= link_to 'Back to Club', club_path(@club)%>

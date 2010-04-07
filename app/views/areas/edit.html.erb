@@ -1,0 +1,12 @@
+<h1>Editing Area</h1>
+
+<% form_for(@area) do |f| %>
+  <%= f.error_messages %>
+  <%= render :partial => "edit_area", :locals => { :f => f } %>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @area %> |
+<%= link_to 'Back', area_path %>

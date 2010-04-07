@@ -1,0 +1,9 @@
+<h1>Create New Area</h1>
+
+<% form_for([@club, @area] ) do |f| %>
+    <%= f.error_messages %>
+    <%= render :partial => "edit_area", :locals => { :f => f } %>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
