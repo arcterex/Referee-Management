@@ -14,8 +14,10 @@
         <td><%= user.phone %></td>
         <td><%= user.cell %></td>
         <td>
+            <% if session[:user].can_edit_user(user) %>
             <%= link_to 'Edit', edit_user_path(user) %> | 
             <%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %>
+            <% end %>
         </td>
     </tr>
 <% end %>

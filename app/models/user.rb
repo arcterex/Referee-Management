@@ -82,7 +82,18 @@ class User < ActiveRecord::Base
     end
     false
   end
+
+  def can_edit_user(user)
+    if self.club_id == user.club_id or self.role.name.downcase == 'master' then
+      logger.debug "Can = true"
+      return true
+    else
+      logger.debug "Can = false"
+      return false
+    end
+  end
   
+  ############# protected methods ################
   protected
   
   def self.encrypt(password, salt)
