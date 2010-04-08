@@ -37,6 +37,7 @@ class ApplicationController < ActionController::Base
       # current role matches or they are a master
       if session[:user].role.name.downcase == "master" ||
          session[:user].role.name.downcase == vars["required_user_role"]
+
         return
       else
         # role doesn't match
