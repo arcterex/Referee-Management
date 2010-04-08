@@ -1,7 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :ages
   map.resources :levels
-  map.resources :clubs,  :has_many => [:fields, :areas], :shallow => true
+  map.resources :clubs,  :has_many => :areas,  :shallow => true
+  map.resources :areas,  :has_many => :fields, :shallow => true
   map.resources :fields, :has_many => :games,  :shallow => true
   map.resources :admins
   map.resources :users

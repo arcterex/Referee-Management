@@ -16,7 +16,7 @@ class Field < ActiveRecord::Base
   # TODO - reset field name back to 'fields'
   set_table_name  "Fields"
   has_many    :games
-  belongs_to  :club
+  belongs_to  :area
   validates_presence_of :name,    :on => :save, :message => "can't be blank"
   validates_presence_of :address, :on => :save, :message => "can't be blank"
   validates_presence_of :club_id, :on => :save, :message => "can't be blank"

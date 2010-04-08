@@ -9,7 +9,7 @@
     <tr>
         <td><%= area.name %></td>
         <td>
-            <%= link_to "Fields", "/club/area/fields" %> |
+            <%= link_to "Fields", area_fields_path(area) %> |
             <%= link_to 'Edit', edit_area_path(area) %> | 
             <%= link_to 'Destroy', area, :confirm => 'Are you sure?', :method => :delete %>
         </td>

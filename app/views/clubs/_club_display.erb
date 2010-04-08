@@ -1,12 +1,15 @@
 <h1><%= club.name %></h1>
 <p>Here are the fields that are in the <%= club.name %> juristriction.</p>
 
-    <% if club.fields.empty? then %>
+<% club.areas.each do |area| %>
+    <p><strong><%= area.name %></strong></p>
+    <% if area.fields.empty? then %>
     <p><em>Currently There are no fields or games setup</em></p>
     <% else %>
     <table>
-        <% club.fields.each do |field| %>
+        <% area.fields.each do |field| %>
             <%= render :partial => "fields/field_display", :locals => { :field => field } %>
         <% end %>
     </table>
     <% end %>
+<% end %>
