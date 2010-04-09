@@ -17,7 +17,7 @@ to submit them to the system.</p>
     <% bid = Bid.new %>
     <% bid = Bid.find( :first, :conditions => { :user_id => @user.id, :game_id => game.id })%>
     <% if not @user.bids.include?(bid)%>
-        <tr>
+        <tr class="<%= cycle('oddrow', 'evenrow') %>">
             <td><%= link_to game.field.name, game.field %></td>
             <td><%= game.home %></td>
             <td><%= game.away %></td>
@@ -50,7 +50,7 @@ to submit them to the system.</p>
         <th>Select</th>
     </tr>
     <% @user.bids.each do |bid| %>
-    <tr>
+    <tr class="<%= cycle('oddrow', 'evenrow') %>">
         <td><%= link_to bid.game.field.name, bid.game.field %></td>
         <td><%= bid.game.home %></td>
         <td><%= bid.game.away %></td>

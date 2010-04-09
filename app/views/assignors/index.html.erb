@@ -24,7 +24,7 @@
        <th>Action</th> 
     </tr>
 <% @assignments.each do |assignment| %>
-    <tr>
+    <tr class="<%= cycle('oddrow', 'evenrow') %>">
         <td><%= pretty_game(assignment.game) %></td>
         <td><%= assignment.user.name %></td>
         <td><%= assignment.status.name %></td>
