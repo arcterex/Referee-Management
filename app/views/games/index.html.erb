@@ -11,7 +11,7 @@
   </tr>
 
 <% @games.each do |game| %>
-  <tr>
+  <tr class="<%= cycle('oddrow', 'evenrow') %>">
     <td><%=h game.gametime.strftime("%D at %I:%M%p") %></td>
     <td><%=h game.field.nil? ? "Undefined" : game.field.name %></td>
     <td><%=h game.home %></td>

@@ -6,7 +6,7 @@
         <th>Actions</th>
     </tr>
 <% @areas.each do |area| %>
-    <tr>
+    <tr class="<%= cycle('oddrow', 'evenrow') %>">
         <td><%= area.name %></td>
         <td>
             <%= link_to "Fields", area_fields_path(area) %> |

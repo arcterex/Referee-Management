@@ -9,7 +9,7 @@
     <th>Age Group</th>
 </tr>
 <% games.each do |game| %>
-<tr>
+<tr class="<%= cycle('oddrow', 'evenrow') %>">
     <td><%= link_to pretty_time(game.gametime), game %></td>
     <td><%=h game.field.address %> 
         <%= link_to_if(game.field.url.present?, '(map)', game.field.url) %></td>

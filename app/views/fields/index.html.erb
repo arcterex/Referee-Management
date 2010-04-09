@@ -10,7 +10,7 @@
   </tr>
 
 <% @fields.each do |field| %>
-  <tr>
+  <tr class="<%= cycle('oddrow', 'evenrow') %>">
     <td><%= link_to field.name, field_path(field) %></td>
     <td><%=h field.address %></td>
     <td><%= field.url.present? ? link_to('Link', field.url) : "" %></td>
