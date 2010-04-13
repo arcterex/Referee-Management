@@ -14,19 +14,20 @@
 </table>
 <%= submit_tag 'Save' %>
 <% end %>
-
+<BR/><br/>
+<h2>Existing Assignments</h2>
 <p>The following is a list of the assignments that you have already set up.</p>
 <table>
     <tr>
-       <th>Game</th>
        <th>Referee</th>
+       <th>Game</th>
        <th>Assignment</th>
        <th>Action</th> 
     </tr>
 <% @assignments.each do |assignment| %>
     <tr class="<%= cycle('oddrow', 'evenrow') %>">
-        <td><%= pretty_game(assignment.game) %></td>
         <td><%= assignment.user.name %></td>
+        <td><%= pretty_game(assignment.game) %></td>
         <td><%= assignment.status.name %></td>
         <td><%= link_to "Edit", assignment %> | <%= link_to 'Destroy', assignment, :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
