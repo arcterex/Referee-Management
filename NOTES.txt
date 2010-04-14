@@ -8,3 +8,6 @@ app/controllers/bids_controller.rb:
 app/models/field.rb:
   * [ 16] [TODO] - reset field name back to 'fields'
 
+app/models/user.rb:
+  * [ 54] [FIXME] - set up the home page properly and more pragmatically
+

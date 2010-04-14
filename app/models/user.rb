@@ -51,14 +51,15 @@ class User < ActiveRecord::Base
   end
 
   def home_page
+    # FIXME - set up the home page properly and more pragmatically
     if self.referee?
-      "bids"
+      return "/bids"
     end
     if self.assignor?
-      "assignors"
+      return "/assignors"
     end
     if self.clubadmin?
-      "some/admin/page"
+      return "some/admin/page"
     end
   end
   
