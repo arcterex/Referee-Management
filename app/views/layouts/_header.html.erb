@@ -2,7 +2,7 @@
     <ul class="navigation round">
     <% if session[:user] %>
         <li>Logged in as <%= session[:user].name %></li>
-        <li><%= link_to "My Page", session[:user].home_page %>
+        <li><%= link_to "My Page", user_role_path(session[:user]) %>
         <li><%= link_to "Logout",  logout_path %></li>
         <li><%= link_to "Home",    club_path(session[:user].club) %></li>
     <% else %>

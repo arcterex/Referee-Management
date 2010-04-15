@@ -24,7 +24,6 @@ class AssignorsController < ApplicationController
         @bidgames << g
       end
     end
-    
   end
   
   def create

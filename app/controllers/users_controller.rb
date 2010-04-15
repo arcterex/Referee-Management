@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  include ApplicationHelper
 #  layout 'admin_area'
   before_filter :except => :login do |controller|
     controller.authorize({"required_user_role" => "admin"})
@@ -8,18 +9,8 @@ class UsersController < ApplicationController
     if request.post?
       if session[:user] = User.authenticate(params[:user][:username], params[:user][:password])
         flash[:message]  = "Login successful"
-        if session[:user].referee? then
-          flash[:notice] = "Sending to Referee page..."
-          redirect_to bids_path
-        elsif session[:user].assignor? then
-          flash[:notice] = "Sending to Assignor page..."
-          redirect_to assignors_path
-        else
-          flash[:notice] = "Sending to original page..."
-          logger.debug "Redirect to stored club page"
-          redirect_to club_path(session[:user].club)
-#          redirect_to_stored
-        end
+        # send the user to the home page defined by their role
+        redirect_to user_role_path(session[:user])
       else
         flash[:warning] = "Login unsuccessful"
       end
