@@ -1,0 +1,3 @@
+= Referee Management Site
+This site is a project for managing local sports club referees, and allowing users to "bid" on games
+and an assignor user to approve these bids, get confirmation to and from the user, etc.
