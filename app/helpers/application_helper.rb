@@ -19,7 +19,7 @@ module ApplicationHelper
     role_path = {
       'clubadmin' => '/some/admin/path', # still need to find where to send this
       'referee'   => bids_path(user),
-      'assignor'  => assignor_path(user),
+      'assignor'  => assignors_url,
     }
     role_path[user.role.name.downcase]
   end

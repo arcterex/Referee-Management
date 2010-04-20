@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   include ApplicationHelper
 #  layout 'admin_area'
-  before_filter :except => :login do |controller|
+  before_filter :except => [:login,:logout] do |controller|
     controller.authorize({"required_user_role" => "admin"})
   end
   

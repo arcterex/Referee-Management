@@ -23,16 +23,6 @@
        <th>Assignment</th>
        <th>Action</th> 
     </tr>
-<!--
-<% @assignments.each do |assignment| %>
-    <tr class="<%= cycle('oddrow', 'evenrow') %>">
-        <td><%= assignment.user.name %></td>
-        <td><%= pretty_game(assignment.game) %></td>
-        <td><%= assignment.status.name %></td>
-        <td><%= link_to "Edit", assignment %> | <%= link_to 'Destroy', assignment, :confirm => 'Are you sure?', :method => :delete %></td>
-    </tr>
-<% end %>
--->
 <% @assignment_by_game.each do |game,assignments| %>
     <tr class="oddrow">
         <td colspan="3"><strong><%= pretty_game(game) %></strong></td>
@@ -46,6 +36,4 @@
     </tr>
     <% end %>
 <% end %>
-
-
 </table>
