@@ -23,7 +23,7 @@ class GamesController < ApplicationController
 
     if @game.update_attributes(params[:game])
       flash[:notice] = 'Game was successfully updated.'
-      redirect_to :action => "index"
+      redirect_to field_games_path(@game.field)
     else
       render :action => "edit"
     end

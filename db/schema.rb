@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100408032950) do
+ActiveRecord::Schema.define(:version => 20100408060302) do
 
   create_table "Fields", :force => true do |t|
     t.string   "name"
@@ -107,6 +107,7 @@ ActiveRecord::Schema.define(:version => 20100408032950) do
     t.integer  "age_id"
     t.text     "notes"
     t.boolean  "cup"
+    t.string   "gender"
   end
 
   create_table "level_groups", :force => true do |t|

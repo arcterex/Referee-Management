@@ -7,6 +7,7 @@
     <th>Home Team</th>
     <th>Away Team</th>
     <th>Cup Game</th>
+    <th>Gender</th>
     <th>Actions</th>
   </tr>
 
@@ -16,7 +17,8 @@
     <td><%=h game.field.nil? ? "Undefined" : game.field.name %></td>
     <td><%=h game.home %></td>
     <td><%=h game.away %></td>
-    <td><%= game.cup ? "Yes" : "" %>
+    <td><%= game.cup ? "Yes" : "" %></td>
+    <td><%= game.gender.to_s.titlecase %></td>
     <td>
         <%= link_to 'Edit', edit_game_path(game) %> | 
         <%= link_to 'Destroy', game, :confirm => 'Are you sure?', :method => :delete %>

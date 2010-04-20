@@ -13,6 +13,7 @@
 #
 
 class Game < ActiveRecord::Base
+  GENDERS = %w( boy girl coed )
   has_many   :referee
   belongs_to :field
   belongs_to :level
@@ -23,7 +24,7 @@ class Game < ActiveRecord::Base
   validates_presence_of :gametime,  :on => :save, :message => "can't be blank"
   validates_presence_of :home,      :on => :save, :message => "can't be blank"
   validates_presence_of :away,      :on => :save, :message => "can't be blank"
-  validates_inclusion_of :gender, :in => [:boy, :girl, :mixed], :on => :create, :message => "extension %s is not included in the list"
+  validates_inclusion_of :gender,   :in => Game::GENDERS, :on => :create, :message => "extension %s is not included in the list"
 
   # list of games that the user is eligable to bid on
   named_scope :eligible_for, lambda { |user|
@@ -32,8 +33,14 @@ class Game < ActiveRecord::Base
   
   # define the gender as a symbol for lookups
   def gender
-    read_attribute(:gender).to_sym
+    attributes = attributes_before_type_cast
+    if attributes["gender"]
+      read_attribute(:gender).to_sym
+    else
+      nil
+    end
   end
+
   def gender=(value)
     write_attribute(:gender, value.to_s)
   end
