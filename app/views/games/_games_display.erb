@@ -6,6 +6,7 @@
     <th>Away Team</th>
     <th>Cup Game</th>
     <th>Level</th>
+    <th>Gender</th>
     <th>Age Group</th>
 </tr>
 <% games.each do |game| %>
@@ -17,6 +18,7 @@
     <td><%=h game.away %></td>
     <td><%= game.cup ? "Yes" : "" %></td>
     <td><%=h game.level && game.level.name %></td>
+    <td><%=h game.gender.to_s.titlecase %></td>
     <td><%=h game.age && game.age.name %></td>
 </tr>
 <% end %>
