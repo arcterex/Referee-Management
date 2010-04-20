@@ -1,9 +1,12 @@
 (in /Users/alan/code/rails/refsite)
 app/controllers/assignors_controller.rb:
-  * [ 16] [TODO] - need to get eligable games for this assignor for regions
+  * [ 29] [TODO] - need to get eligable games for this assignor for regions
 
 app/controllers/bids_controller.rb:
   * [ 42] [TODO] - send notification of bid change to admin
+
+app/helpers/application_helper.rb:
+  * [ 18] [TODO] - find where to send the clubadmin to
 
 app/models/field.rb:
   * [ 16] [TODO] - reset field name back to 'fields'

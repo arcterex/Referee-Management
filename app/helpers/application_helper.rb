@@ -15,6 +15,7 @@ module ApplicationHelper
   end
   
   def user_role_path(user)
+    # TODO - find where to send the clubadmin to
     role_path = {
       'clubadmin' => '/some/admin/path', # still need to find where to send this
       'referee'   => bids_path(user),

@@ -12,6 +12,19 @@ class AssignorsController < ApplicationController
     
     # list of assignments that this assignor has assigned
     @assignments = Assignment.assigned_by(@user)
+    @assignment_by_game = Hash.new
+    @assignments.each do |ass|
+      temp_game = ass.game
+      if @assignment_by_game.key? temp_game
+        @assignment_by_game[temp_game] << ass
+      else
+        @assignment_by_game[temp_game] = Array.new
+        @assignment_by_game[temp_game] << ass
+      end
+    end
+    logger.debug "Ass = "
+    logger.debug @assignment_by_game.inspect 
+    #@assignemnt_by_game.sort { |a,b| a[1]<=>b[1]}
     
     # TODO - need to get eligable games for this assignor for regions
     # get a list of the bids that are in my region/club
